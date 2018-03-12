@@ -20,102 +20,138 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "Discovery" :: String
-
 
 -- | <p>Associates one or more configuration items with an application.</p>
 associateConfigurationItemsToApplication :: forall eff. AssociateConfigurationItemsToApplicationRequest -> Aff (exception :: EXCEPTION | eff) AssociateConfigurationItemsToApplicationResponse
-associateConfigurationItemsToApplication = Request.request serviceName "associateConfigurationItemsToApplication" 
+associateConfigurationItemsToApplication = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "associateConfigurationItemsToApplication"
 
 
 -- | <p>Creates an application with the given name and description.</p>
 createApplication :: forall eff. CreateApplicationRequest -> Aff (exception :: EXCEPTION | eff) CreateApplicationResponse
-createApplication = Request.request serviceName "createApplication" 
+createApplication = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "createApplication"
 
 
 -- | <p>Creates one or more tags for configuration items. Tags are metadata that help you categorize IT assets. This API accepts a list of multiple configuration items.</p>
 createTags :: forall eff. CreateTagsRequest -> Aff (exception :: EXCEPTION | eff) CreateTagsResponse
-createTags = Request.request serviceName "createTags" 
+createTags = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "createTags"
 
 
 -- | <p>Deletes a list of applications and their associations with configuration items.</p>
 deleteApplications :: forall eff. DeleteApplicationsRequest -> Aff (exception :: EXCEPTION | eff) DeleteApplicationsResponse
-deleteApplications = Request.request serviceName "deleteApplications" 
+deleteApplications = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "deleteApplications"
 
 
 -- | <p>Deletes the association between configuration items and one or more tags. This API accepts a list of multiple configuration items.</p>
 deleteTags :: forall eff. DeleteTagsRequest -> Aff (exception :: EXCEPTION | eff) DeleteTagsResponse
-deleteTags = Request.request serviceName "deleteTags" 
+deleteTags = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "deleteTags"
 
 
 -- | <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an ID.</p>
 describeAgents :: forall eff. DescribeAgentsRequest -> Aff (exception :: EXCEPTION | eff) DescribeAgentsResponse
-describeAgents = Request.request serviceName "describeAgents" 
+describeAgents = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "describeAgents"
 
 
 -- | <p>Retrieves attributes for a list of configuration item IDs. All of the supplied IDs must be for the same asset type (server, application, process, or connection). Output fields are specific to the asset type selected. For example, the output for a <i>server</i> configuration item includes a list of attributes about the server, such as host name, operating system, and number of network cards.</p> <p>For a complete list of outputs for each asset type, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#DescribeConfigurations">Using the DescribeConfigurations Action</a>.</p>
 describeConfigurations :: forall eff. DescribeConfigurationsRequest -> Aff (exception :: EXCEPTION | eff) DescribeConfigurationsResponse
-describeConfigurations = Request.request serviceName "describeConfigurations" 
+describeConfigurations = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "describeConfigurations"
 
 
 -- | <p>Deprecated. Use <code>DescribeExportTasks</code> instead.</p> <p>Retrieves the status of a given export process. You can retrieve status from a maximum of 100 processes.</p>
 describeExportConfigurations :: forall eff. DescribeExportConfigurationsRequest -> Aff (exception :: EXCEPTION | eff) DescribeExportConfigurationsResponse
-describeExportConfigurations = Request.request serviceName "describeExportConfigurations" 
+describeExportConfigurations = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "describeExportConfigurations"
 
 
 -- | <p>Retrieve status of one or more export tasks. You can retrieve the status of up to 100 export tasks.</p>
 describeExportTasks :: forall eff. DescribeExportTasksRequest -> Aff (exception :: EXCEPTION | eff) DescribeExportTasksResponse
-describeExportTasks = Request.request serviceName "describeExportTasks" 
+describeExportTasks = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "describeExportTasks"
 
 
 -- | <p>Retrieves a list of configuration items that are tagged with a specific tag. Or retrieves a list of all tags assigned to a specific configuration item.</p>
 describeTags :: forall eff. DescribeTagsRequest -> Aff (exception :: EXCEPTION | eff) DescribeTagsResponse
-describeTags = Request.request serviceName "describeTags" 
+describeTags = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "describeTags"
 
 
 -- | <p>Disassociates one or more configuration items from an application.</p>
 disassociateConfigurationItemsFromApplication :: forall eff. DisassociateConfigurationItemsFromApplicationRequest -> Aff (exception :: EXCEPTION | eff) DisassociateConfigurationItemsFromApplicationResponse
-disassociateConfigurationItemsFromApplication = Request.request serviceName "disassociateConfigurationItemsFromApplication" 
+disassociateConfigurationItemsFromApplication = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "disassociateConfigurationItemsFromApplication"
 
 
 -- | <p>Deprecated. Use <code>StartExportTask</code> instead.</p> <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID that you can query using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of two configuration exports in six hours.</p>
 exportConfigurations :: forall eff.  Aff (exception :: EXCEPTION | eff) ExportConfigurationsResponse
-exportConfigurations = Request.request serviceName "exportConfigurations" (Types.NoInput unit)
+exportConfigurations = Request.request service method (Types.NoInput unit) where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "exportConfigurations"
 
 
 -- | <p>Retrieves a short summary of discovered assets.</p>
 getDiscoverySummary :: forall eff. GetDiscoverySummaryRequest -> Aff (exception :: EXCEPTION | eff) GetDiscoverySummaryResponse
-getDiscoverySummary = Request.request serviceName "getDiscoverySummary" 
+getDiscoverySummary = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "getDiscoverySummary"
 
 
 -- | <p>Retrieves a list of configuration items according to criteria that you specify in a filter. The filter criteria identifies the relationship requirements.</p>
 listConfigurations :: forall eff. ListConfigurationsRequest -> Aff (exception :: EXCEPTION | eff) ListConfigurationsResponse
-listConfigurations = Request.request serviceName "listConfigurations" 
+listConfigurations = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "listConfigurations"
 
 
 -- | <p>Retrieves a list of servers that are one network hop away from a specified server.</p>
 listServerNeighbors :: forall eff. ListServerNeighborsRequest -> Aff (exception :: EXCEPTION | eff) ListServerNeighborsResponse
-listServerNeighbors = Request.request serviceName "listServerNeighbors" 
+listServerNeighbors = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "listServerNeighbors"
 
 
 -- | <p>Instructs the specified agents or connectors to start collecting data.</p>
 startDataCollectionByAgentIds :: forall eff. StartDataCollectionByAgentIdsRequest -> Aff (exception :: EXCEPTION | eff) StartDataCollectionByAgentIdsResponse
-startDataCollectionByAgentIds = Request.request serviceName "startDataCollectionByAgentIds" 
+startDataCollectionByAgentIds = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "startDataCollectionByAgentIds"
 
 
 -- | <p> Begins the export of discovered data to an S3 bucket.</p> <p> If you specify <code>agentIds</code> in a filter, the task exports up to 72 hours of detailed data collected by the identified Application Discovery Agent, including network, process, and performance details. A time range for exported agent data may be set by using <code>startTime</code> and <code>endTime</code>. Export of detailed agent data is limited to five concurrently running exports. </p> <p> If you do not include an <code>agentIds</code> filter, summary data is exported that includes both AWS Agentless Discovery Connector data and summary data from AWS Discovery Agents. Export of summary data is limited to two exports per day. </p>
 startExportTask :: forall eff. StartExportTaskRequest -> Aff (exception :: EXCEPTION | eff) StartExportTaskResponse
-startExportTask = Request.request serviceName "startExportTask" 
+startExportTask = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "startExportTask"
 
 
 -- | <p>Instructs the specified agents or connectors to stop collecting data.</p>
 stopDataCollectionByAgentIds :: forall eff. StopDataCollectionByAgentIdsRequest -> Aff (exception :: EXCEPTION | eff) StopDataCollectionByAgentIdsResponse
-stopDataCollectionByAgentIds = Request.request serviceName "stopDataCollectionByAgentIds" 
+stopDataCollectionByAgentIds = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "stopDataCollectionByAgentIds"
 
 
 -- | <p>Updates metadata about an application.</p>
 updateApplication :: forall eff. UpdateApplicationRequest -> Aff (exception :: EXCEPTION | eff) UpdateApplicationResponse
-updateApplication = Request.request serviceName "updateApplication" 
+updateApplication = Request.request service method  where
+    service = Request.ServiceName "Discovery"
+    method = Request.MethodName "updateApplication"
 
 
 -- | <p>Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.</p>
