@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AgentConfigurationStatus
-  = AgentConfigurationStatus { agentId :: NullOrUndefined (String), operationSucceeded :: NullOrUndefined (Boolean), description :: NullOrUndefined (String) }
+  = AgentConfigurationStatus { agentId :: Maybe (String), operationSucceeded :: Maybe (Boolean), description :: Maybe (String) }
 ```
 
 <p>Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.</p>
@@ -35,7 +35,7 @@ Constructs AgentConfigurationStatus from required parameters
 #### `newAgentConfigurationStatus'`
 
 ``` purescript
-newAgentConfigurationStatus' :: ({ agentId :: NullOrUndefined (String), operationSucceeded :: NullOrUndefined (Boolean), description :: NullOrUndefined (String) } -> { agentId :: NullOrUndefined (String), operationSucceeded :: NullOrUndefined (Boolean), description :: NullOrUndefined (String) }) -> AgentConfigurationStatus
+newAgentConfigurationStatus' :: ({ agentId :: Maybe (String), operationSucceeded :: Maybe (Boolean), description :: Maybe (String) } -> { agentId :: Maybe (String), operationSucceeded :: Maybe (Boolean), description :: Maybe (String) }) -> AgentConfigurationStatus
 ```
 
 Constructs AgentConfigurationStatus's fields from required parameters
@@ -92,7 +92,7 @@ Encode AgentIds
 
 ``` purescript
 newtype AgentInfo
-  = AgentInfo { agentId :: NullOrUndefined (AgentId), hostName :: NullOrUndefined (String), agentNetworkInfoList :: NullOrUndefined (AgentNetworkInfoList), connectorId :: NullOrUndefined (String), version :: NullOrUndefined (String), health :: NullOrUndefined (AgentStatus), lastHealthPingTime :: NullOrUndefined (String), collectionStatus :: NullOrUndefined (String), agentType :: NullOrUndefined (String), registeredTime :: NullOrUndefined (String) }
+  = AgentInfo { agentId :: Maybe (AgentId), hostName :: Maybe (String), agentNetworkInfoList :: Maybe (AgentNetworkInfoList), connectorId :: Maybe (String), version :: Maybe (String), health :: Maybe (AgentStatus), lastHealthPingTime :: Maybe (String), collectionStatus :: Maybe (String), agentType :: Maybe (String), registeredTime :: Maybe (String) }
 ```
 
 <p>Information about agents or connectors associated with the user’s AWS account. Information includes agent or connector IDs, IP addresses, media access control (MAC) addresses, agent or connector health, hostname where the agent or connector resides, and agent version for each agent.</p>
@@ -117,7 +117,7 @@ Constructs AgentInfo from required parameters
 #### `newAgentInfo'`
 
 ``` purescript
-newAgentInfo' :: ({ agentId :: NullOrUndefined (AgentId), hostName :: NullOrUndefined (String), agentNetworkInfoList :: NullOrUndefined (AgentNetworkInfoList), connectorId :: NullOrUndefined (String), version :: NullOrUndefined (String), health :: NullOrUndefined (AgentStatus), lastHealthPingTime :: NullOrUndefined (String), collectionStatus :: NullOrUndefined (String), agentType :: NullOrUndefined (String), registeredTime :: NullOrUndefined (String) } -> { agentId :: NullOrUndefined (AgentId), hostName :: NullOrUndefined (String), agentNetworkInfoList :: NullOrUndefined (AgentNetworkInfoList), connectorId :: NullOrUndefined (String), version :: NullOrUndefined (String), health :: NullOrUndefined (AgentStatus), lastHealthPingTime :: NullOrUndefined (String), collectionStatus :: NullOrUndefined (String), agentType :: NullOrUndefined (String), registeredTime :: NullOrUndefined (String) }) -> AgentInfo
+newAgentInfo' :: ({ agentId :: Maybe (AgentId), hostName :: Maybe (String), agentNetworkInfoList :: Maybe (AgentNetworkInfoList), connectorId :: Maybe (String), version :: Maybe (String), health :: Maybe (AgentStatus), lastHealthPingTime :: Maybe (String), collectionStatus :: Maybe (String), agentType :: Maybe (String), registeredTime :: Maybe (String) } -> { agentId :: Maybe (AgentId), hostName :: Maybe (String), agentNetworkInfoList :: Maybe (AgentNetworkInfoList), connectorId :: Maybe (String), version :: Maybe (String), health :: Maybe (AgentStatus), lastHealthPingTime :: Maybe (String), collectionStatus :: Maybe (String), agentType :: Maybe (String), registeredTime :: Maybe (String) }) -> AgentInfo
 ```
 
 Constructs AgentInfo's fields from required parameters
@@ -126,7 +126,7 @@ Constructs AgentInfo's fields from required parameters
 
 ``` purescript
 newtype AgentNetworkInfo
-  = AgentNetworkInfo { ipAddress :: NullOrUndefined (String), macAddress :: NullOrUndefined (String) }
+  = AgentNetworkInfo { ipAddress :: Maybe (String), macAddress :: Maybe (String) }
 ```
 
 <p>Network details about the host where the agent/connector resides.</p>
@@ -151,7 +151,7 @@ Constructs AgentNetworkInfo from required parameters
 #### `newAgentNetworkInfo'`
 
 ``` purescript
-newAgentNetworkInfo' :: ({ ipAddress :: NullOrUndefined (String), macAddress :: NullOrUndefined (String) } -> { ipAddress :: NullOrUndefined (String), macAddress :: NullOrUndefined (String) }) -> AgentNetworkInfo
+newAgentNetworkInfo' :: ({ ipAddress :: Maybe (String), macAddress :: Maybe (String) } -> { ipAddress :: Maybe (String), macAddress :: Maybe (String) }) -> AgentNetworkInfo
 ```
 
 Constructs AgentNetworkInfo's fields from required parameters
@@ -288,7 +288,7 @@ Encode AssociateConfigurationItemsToApplicationResponse
 
 ``` purescript
 newtype AuthorizationErrorException
-  = AuthorizationErrorException { message :: NullOrUndefined (Message) }
+  = AuthorizationErrorException { message :: Maybe (Message) }
 ```
 
 <p>The AWS user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
@@ -313,7 +313,7 @@ Constructs AuthorizationErrorException from required parameters
 #### `newAuthorizationErrorException'`
 
 ``` purescript
-newAuthorizationErrorException' :: ({ message :: NullOrUndefined (Message) } -> { message :: NullOrUndefined (Message) }) -> AuthorizationErrorException
+newAuthorizationErrorException' :: ({ message :: Maybe (Message) } -> { message :: Maybe (Message) }) -> AuthorizationErrorException
 ```
 
 Constructs AuthorizationErrorException's fields from required parameters
@@ -418,7 +418,7 @@ Encode ConfigurationItemType
 
 ``` purescript
 newtype ConfigurationTag
-  = ConfigurationTag { configurationType :: NullOrUndefined (ConfigurationItemType), configurationId :: NullOrUndefined (ConfigurationId), key :: NullOrUndefined (TagKey), value :: NullOrUndefined (TagValue), timeOfCreation :: NullOrUndefined (TimeStamp) }
+  = ConfigurationTag { configurationType :: Maybe (ConfigurationItemType), configurationId :: Maybe (ConfigurationId), key :: Maybe (TagKey), value :: Maybe (TagValue), timeOfCreation :: Maybe (TimeStamp) }
 ```
 
 <p>Tags for a configuration item. Tags are metadata that help you categorize IT assets.</p>
@@ -443,7 +443,7 @@ Constructs ConfigurationTag from required parameters
 #### `newConfigurationTag'`
 
 ``` purescript
-newConfigurationTag' :: ({ configurationType :: NullOrUndefined (ConfigurationItemType), configurationId :: NullOrUndefined (ConfigurationId), key :: NullOrUndefined (TagKey), value :: NullOrUndefined (TagValue), timeOfCreation :: NullOrUndefined (TimeStamp) } -> { configurationType :: NullOrUndefined (ConfigurationItemType), configurationId :: NullOrUndefined (ConfigurationId), key :: NullOrUndefined (TagKey), value :: NullOrUndefined (TagValue), timeOfCreation :: NullOrUndefined (TimeStamp) }) -> ConfigurationTag
+newConfigurationTag' :: ({ configurationType :: Maybe (ConfigurationItemType), configurationId :: Maybe (ConfigurationId), key :: Maybe (TagKey), value :: Maybe (TagValue), timeOfCreation :: Maybe (TimeStamp) } -> { configurationType :: Maybe (ConfigurationItemType), configurationId :: Maybe (ConfigurationId), key :: Maybe (TagKey), value :: Maybe (TagValue), timeOfCreation :: Maybe (TimeStamp) }) -> ConfigurationTag
 ```
 
 Constructs ConfigurationTag's fields from required parameters
@@ -516,7 +516,7 @@ Encode ConfigurationsExportId
 
 ``` purescript
 newtype CreateApplicationRequest
-  = CreateApplicationRequest { name :: String, description :: NullOrUndefined (String) }
+  = CreateApplicationRequest { name :: String, description :: Maybe (String) }
 ```
 
 ##### Instances
@@ -539,7 +539,7 @@ Constructs CreateApplicationRequest from required parameters
 #### `newCreateApplicationRequest'`
 
 ``` purescript
-newCreateApplicationRequest' :: String -> ({ name :: String, description :: NullOrUndefined (String) } -> { name :: String, description :: NullOrUndefined (String) }) -> CreateApplicationRequest
+newCreateApplicationRequest' :: String -> ({ name :: String, description :: Maybe (String) } -> { name :: String, description :: Maybe (String) }) -> CreateApplicationRequest
 ```
 
 Constructs CreateApplicationRequest's fields from required parameters
@@ -548,7 +548,7 @@ Constructs CreateApplicationRequest's fields from required parameters
 
 ``` purescript
 newtype CreateApplicationResponse
-  = CreateApplicationResponse { configurationId :: NullOrUndefined (String) }
+  = CreateApplicationResponse { configurationId :: Maybe (String) }
 ```
 
 ##### Instances
@@ -571,7 +571,7 @@ Constructs CreateApplicationResponse from required parameters
 #### `newCreateApplicationResponse'`
 
 ``` purescript
-newCreateApplicationResponse' :: ({ configurationId :: NullOrUndefined (String) } -> { configurationId :: NullOrUndefined (String) }) -> CreateApplicationResponse
+newCreateApplicationResponse' :: ({ configurationId :: Maybe (String) } -> { configurationId :: Maybe (String) }) -> CreateApplicationResponse
 ```
 
 Constructs CreateApplicationResponse's fields from required parameters
@@ -744,7 +744,7 @@ Encode DeleteApplicationsResponse
 
 ``` purescript
 newtype DeleteTagsRequest
-  = DeleteTagsRequest { configurationIds :: ConfigurationIdList, tags :: NullOrUndefined (TagSet) }
+  = DeleteTagsRequest { configurationIds :: ConfigurationIdList, tags :: Maybe (TagSet) }
 ```
 
 ##### Instances
@@ -767,7 +767,7 @@ Constructs DeleteTagsRequest from required parameters
 #### `newDeleteTagsRequest'`
 
 ``` purescript
-newDeleteTagsRequest' :: ConfigurationIdList -> ({ configurationIds :: ConfigurationIdList, tags :: NullOrUndefined (TagSet) } -> { configurationIds :: ConfigurationIdList, tags :: NullOrUndefined (TagSet) }) -> DeleteTagsRequest
+newDeleteTagsRequest' :: ConfigurationIdList -> ({ configurationIds :: ConfigurationIdList, tags :: Maybe (TagSet) } -> { configurationIds :: ConfigurationIdList, tags :: Maybe (TagSet) }) -> DeleteTagsRequest
 ```
 
 Constructs DeleteTagsRequest's fields from required parameters
@@ -792,7 +792,7 @@ Encode DeleteTagsResponse
 
 ``` purescript
 newtype DescribeAgentsRequest
-  = DescribeAgentsRequest { agentIds :: NullOrUndefined (AgentIds), filters :: NullOrUndefined (Filters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeAgentsRequest { agentIds :: Maybe (AgentIds), filters :: Maybe (Filters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -815,7 +815,7 @@ Constructs DescribeAgentsRequest from required parameters
 #### `newDescribeAgentsRequest'`
 
 ``` purescript
-newDescribeAgentsRequest' :: ({ agentIds :: NullOrUndefined (AgentIds), filters :: NullOrUndefined (Filters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) } -> { agentIds :: NullOrUndefined (AgentIds), filters :: NullOrUndefined (Filters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) }) -> DescribeAgentsRequest
+newDescribeAgentsRequest' :: ({ agentIds :: Maybe (AgentIds), filters :: Maybe (Filters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) } -> { agentIds :: Maybe (AgentIds), filters :: Maybe (Filters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) }) -> DescribeAgentsRequest
 ```
 
 Constructs DescribeAgentsRequest's fields from required parameters
@@ -824,7 +824,7 @@ Constructs DescribeAgentsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeAgentsResponse
-  = DescribeAgentsResponse { agentsInfo :: NullOrUndefined (AgentsInfo), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeAgentsResponse { agentsInfo :: Maybe (AgentsInfo), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -847,7 +847,7 @@ Constructs DescribeAgentsResponse from required parameters
 #### `newDescribeAgentsResponse'`
 
 ``` purescript
-newDescribeAgentsResponse' :: ({ agentsInfo :: NullOrUndefined (AgentsInfo), nextToken :: NullOrUndefined (NextToken) } -> { agentsInfo :: NullOrUndefined (AgentsInfo), nextToken :: NullOrUndefined (NextToken) }) -> DescribeAgentsResponse
+newDescribeAgentsResponse' :: ({ agentsInfo :: Maybe (AgentsInfo), nextToken :: Maybe (NextToken) } -> { agentsInfo :: Maybe (AgentsInfo), nextToken :: Maybe (NextToken) }) -> DescribeAgentsResponse
 ```
 
 Constructs DescribeAgentsResponse's fields from required parameters
@@ -920,7 +920,7 @@ Constructs DescribeConfigurationsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeConfigurationsResponse
-  = DescribeConfigurationsResponse { configurations :: NullOrUndefined (DescribeConfigurationsAttributes) }
+  = DescribeConfigurationsResponse { configurations :: Maybe (DescribeConfigurationsAttributes) }
 ```
 
 ##### Instances
@@ -943,7 +943,7 @@ Constructs DescribeConfigurationsResponse from required parameters
 #### `newDescribeConfigurationsResponse'`
 
 ``` purescript
-newDescribeConfigurationsResponse' :: ({ configurations :: NullOrUndefined (DescribeConfigurationsAttributes) } -> { configurations :: NullOrUndefined (DescribeConfigurationsAttributes) }) -> DescribeConfigurationsResponse
+newDescribeConfigurationsResponse' :: ({ configurations :: Maybe (DescribeConfigurationsAttributes) } -> { configurations :: Maybe (DescribeConfigurationsAttributes) }) -> DescribeConfigurationsResponse
 ```
 
 Constructs DescribeConfigurationsResponse's fields from required parameters
@@ -952,7 +952,7 @@ Constructs DescribeConfigurationsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeExportConfigurationsRequest
-  = DescribeExportConfigurationsRequest { exportIds :: NullOrUndefined (ExportIds), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeExportConfigurationsRequest { exportIds :: Maybe (ExportIds), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -975,7 +975,7 @@ Constructs DescribeExportConfigurationsRequest from required parameters
 #### `newDescribeExportConfigurationsRequest'`
 
 ``` purescript
-newDescribeExportConfigurationsRequest' :: ({ exportIds :: NullOrUndefined (ExportIds), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) } -> { exportIds :: NullOrUndefined (ExportIds), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) }) -> DescribeExportConfigurationsRequest
+newDescribeExportConfigurationsRequest' :: ({ exportIds :: Maybe (ExportIds), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) } -> { exportIds :: Maybe (ExportIds), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) }) -> DescribeExportConfigurationsRequest
 ```
 
 Constructs DescribeExportConfigurationsRequest's fields from required parameters
@@ -984,7 +984,7 @@ Constructs DescribeExportConfigurationsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeExportConfigurationsResponse
-  = DescribeExportConfigurationsResponse { exportsInfo :: NullOrUndefined (ExportsInfo), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeExportConfigurationsResponse { exportsInfo :: Maybe (ExportsInfo), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1007,7 +1007,7 @@ Constructs DescribeExportConfigurationsResponse from required parameters
 #### `newDescribeExportConfigurationsResponse'`
 
 ``` purescript
-newDescribeExportConfigurationsResponse' :: ({ exportsInfo :: NullOrUndefined (ExportsInfo), nextToken :: NullOrUndefined (NextToken) } -> { exportsInfo :: NullOrUndefined (ExportsInfo), nextToken :: NullOrUndefined (NextToken) }) -> DescribeExportConfigurationsResponse
+newDescribeExportConfigurationsResponse' :: ({ exportsInfo :: Maybe (ExportsInfo), nextToken :: Maybe (NextToken) } -> { exportsInfo :: Maybe (ExportsInfo), nextToken :: Maybe (NextToken) }) -> DescribeExportConfigurationsResponse
 ```
 
 Constructs DescribeExportConfigurationsResponse's fields from required parameters
@@ -1016,7 +1016,7 @@ Constructs DescribeExportConfigurationsResponse's fields from required parameter
 
 ``` purescript
 newtype DescribeExportTasksRequest
-  = DescribeExportTasksRequest { exportIds :: NullOrUndefined (ExportIds), filters :: NullOrUndefined (ExportFilters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeExportTasksRequest { exportIds :: Maybe (ExportIds), filters :: Maybe (ExportFilters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1039,7 +1039,7 @@ Constructs DescribeExportTasksRequest from required parameters
 #### `newDescribeExportTasksRequest'`
 
 ``` purescript
-newDescribeExportTasksRequest' :: ({ exportIds :: NullOrUndefined (ExportIds), filters :: NullOrUndefined (ExportFilters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) } -> { exportIds :: NullOrUndefined (ExportIds), filters :: NullOrUndefined (ExportFilters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) }) -> DescribeExportTasksRequest
+newDescribeExportTasksRequest' :: ({ exportIds :: Maybe (ExportIds), filters :: Maybe (ExportFilters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) } -> { exportIds :: Maybe (ExportIds), filters :: Maybe (ExportFilters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) }) -> DescribeExportTasksRequest
 ```
 
 Constructs DescribeExportTasksRequest's fields from required parameters
@@ -1048,7 +1048,7 @@ Constructs DescribeExportTasksRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeExportTasksResponse
-  = DescribeExportTasksResponse { exportsInfo :: NullOrUndefined (ExportsInfo), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeExportTasksResponse { exportsInfo :: Maybe (ExportsInfo), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1071,7 +1071,7 @@ Constructs DescribeExportTasksResponse from required parameters
 #### `newDescribeExportTasksResponse'`
 
 ``` purescript
-newDescribeExportTasksResponse' :: ({ exportsInfo :: NullOrUndefined (ExportsInfo), nextToken :: NullOrUndefined (NextToken) } -> { exportsInfo :: NullOrUndefined (ExportsInfo), nextToken :: NullOrUndefined (NextToken) }) -> DescribeExportTasksResponse
+newDescribeExportTasksResponse' :: ({ exportsInfo :: Maybe (ExportsInfo), nextToken :: Maybe (NextToken) } -> { exportsInfo :: Maybe (ExportsInfo), nextToken :: Maybe (NextToken) }) -> DescribeExportTasksResponse
 ```
 
 Constructs DescribeExportTasksResponse's fields from required parameters
@@ -1080,7 +1080,7 @@ Constructs DescribeExportTasksResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeTagsRequest
-  = DescribeTagsRequest { filters :: NullOrUndefined (TagFilters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeTagsRequest { filters :: Maybe (TagFilters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1103,7 +1103,7 @@ Constructs DescribeTagsRequest from required parameters
 #### `newDescribeTagsRequest'`
 
 ``` purescript
-newDescribeTagsRequest' :: ({ filters :: NullOrUndefined (TagFilters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) } -> { filters :: NullOrUndefined (TagFilters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken) }) -> DescribeTagsRequest
+newDescribeTagsRequest' :: ({ filters :: Maybe (TagFilters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) } -> { filters :: Maybe (TagFilters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken) }) -> DescribeTagsRequest
 ```
 
 Constructs DescribeTagsRequest's fields from required parameters
@@ -1112,7 +1112,7 @@ Constructs DescribeTagsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeTagsResponse
-  = DescribeTagsResponse { tags :: NullOrUndefined (ConfigurationTagSet), nextToken :: NullOrUndefined (NextToken) }
+  = DescribeTagsResponse { tags :: Maybe (ConfigurationTagSet), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1135,7 +1135,7 @@ Constructs DescribeTagsResponse from required parameters
 #### `newDescribeTagsResponse'`
 
 ``` purescript
-newDescribeTagsResponse' :: ({ tags :: NullOrUndefined (ConfigurationTagSet), nextToken :: NullOrUndefined (NextToken) } -> { tags :: NullOrUndefined (ConfigurationTagSet), nextToken :: NullOrUndefined (NextToken) }) -> DescribeTagsResponse
+newDescribeTagsResponse' :: ({ tags :: Maybe (ConfigurationTagSet), nextToken :: Maybe (NextToken) } -> { tags :: Maybe (ConfigurationTagSet), nextToken :: Maybe (NextToken) }) -> DescribeTagsResponse
 ```
 
 Constructs DescribeTagsResponse's fields from required parameters
@@ -1192,7 +1192,7 @@ Encode DisassociateConfigurationItemsFromApplicationResponse
 
 ``` purescript
 newtype ExportConfigurationsResponse
-  = ExportConfigurationsResponse { exportId :: NullOrUndefined (ConfigurationsExportId) }
+  = ExportConfigurationsResponse { exportId :: Maybe (ConfigurationsExportId) }
 ```
 
 ##### Instances
@@ -1215,7 +1215,7 @@ Constructs ExportConfigurationsResponse from required parameters
 #### `newExportConfigurationsResponse'`
 
 ``` purescript
-newExportConfigurationsResponse' :: ({ exportId :: NullOrUndefined (ConfigurationsExportId) } -> { exportId :: NullOrUndefined (ConfigurationsExportId) }) -> ExportConfigurationsResponse
+newExportConfigurationsResponse' :: ({ exportId :: Maybe (ConfigurationsExportId) } -> { exportId :: Maybe (ConfigurationsExportId) }) -> ExportConfigurationsResponse
 ```
 
 Constructs ExportConfigurationsResponse's fields from required parameters
@@ -1322,7 +1322,7 @@ Encode ExportIds
 
 ``` purescript
 newtype ExportInfo
-  = ExportInfo { exportId :: ConfigurationsExportId, exportStatus :: ExportStatus, statusMessage :: ExportStatusMessage, configurationsDownloadUrl :: NullOrUndefined (ConfigurationsDownloadUrl), exportRequestTime :: ExportRequestTime, isTruncated :: NullOrUndefined (Boolean), requestedStartTime :: NullOrUndefined (TimeStamp), requestedEndTime :: NullOrUndefined (TimeStamp) }
+  = ExportInfo { exportId :: ConfigurationsExportId, exportStatus :: ExportStatus, statusMessage :: ExportStatusMessage, configurationsDownloadUrl :: Maybe (ConfigurationsDownloadUrl), exportRequestTime :: ExportRequestTime, isTruncated :: Maybe (Boolean), requestedStartTime :: Maybe (TimeStamp), requestedEndTime :: Maybe (TimeStamp) }
 ```
 
 <p>Information regarding the export status of discovered data. The value is an array of objects.</p>
@@ -1347,7 +1347,7 @@ Constructs ExportInfo from required parameters
 #### `newExportInfo'`
 
 ``` purescript
-newExportInfo' :: ConfigurationsExportId -> ExportRequestTime -> ExportStatus -> ExportStatusMessage -> ({ exportId :: ConfigurationsExportId, exportStatus :: ExportStatus, statusMessage :: ExportStatusMessage, configurationsDownloadUrl :: NullOrUndefined (ConfigurationsDownloadUrl), exportRequestTime :: ExportRequestTime, isTruncated :: NullOrUndefined (Boolean), requestedStartTime :: NullOrUndefined (TimeStamp), requestedEndTime :: NullOrUndefined (TimeStamp) } -> { exportId :: ConfigurationsExportId, exportStatus :: ExportStatus, statusMessage :: ExportStatusMessage, configurationsDownloadUrl :: NullOrUndefined (ConfigurationsDownloadUrl), exportRequestTime :: ExportRequestTime, isTruncated :: NullOrUndefined (Boolean), requestedStartTime :: NullOrUndefined (TimeStamp), requestedEndTime :: NullOrUndefined (TimeStamp) }) -> ExportInfo
+newExportInfo' :: ConfigurationsExportId -> ExportRequestTime -> ExportStatus -> ExportStatusMessage -> ({ exportId :: ConfigurationsExportId, exportStatus :: ExportStatus, statusMessage :: ExportStatusMessage, configurationsDownloadUrl :: Maybe (ConfigurationsDownloadUrl), exportRequestTime :: ExportRequestTime, isTruncated :: Maybe (Boolean), requestedStartTime :: Maybe (TimeStamp), requestedEndTime :: Maybe (TimeStamp) } -> { exportId :: ConfigurationsExportId, exportStatus :: ExportStatus, statusMessage :: ExportStatusMessage, configurationsDownloadUrl :: Maybe (ConfigurationsDownloadUrl), exportRequestTime :: ExportRequestTime, isTruncated :: Maybe (Boolean), requestedStartTime :: Maybe (TimeStamp), requestedEndTime :: Maybe (TimeStamp) }) -> ExportInfo
 ```
 
 Constructs ExportInfo's fields from required parameters
@@ -1534,7 +1534,7 @@ Encode GetDiscoverySummaryRequest
 
 ``` purescript
 newtype GetDiscoverySummaryResponse
-  = GetDiscoverySummaryResponse { servers :: NullOrUndefined (Number), applications :: NullOrUndefined (Number), serversMappedToApplications :: NullOrUndefined (Number), serversMappedtoTags :: NullOrUndefined (Number), agentSummary :: NullOrUndefined (CustomerAgentInfo), connectorSummary :: NullOrUndefined (CustomerConnectorInfo) }
+  = GetDiscoverySummaryResponse { servers :: Maybe (Number), applications :: Maybe (Number), serversMappedToApplications :: Maybe (Number), serversMappedtoTags :: Maybe (Number), agentSummary :: Maybe (CustomerAgentInfo), connectorSummary :: Maybe (CustomerConnectorInfo) }
 ```
 
 ##### Instances
@@ -1557,7 +1557,7 @@ Constructs GetDiscoverySummaryResponse from required parameters
 #### `newGetDiscoverySummaryResponse'`
 
 ``` purescript
-newGetDiscoverySummaryResponse' :: ({ servers :: NullOrUndefined (Number), applications :: NullOrUndefined (Number), serversMappedToApplications :: NullOrUndefined (Number), serversMappedtoTags :: NullOrUndefined (Number), agentSummary :: NullOrUndefined (CustomerAgentInfo), connectorSummary :: NullOrUndefined (CustomerConnectorInfo) } -> { servers :: NullOrUndefined (Number), applications :: NullOrUndefined (Number), serversMappedToApplications :: NullOrUndefined (Number), serversMappedtoTags :: NullOrUndefined (Number), agentSummary :: NullOrUndefined (CustomerAgentInfo), connectorSummary :: NullOrUndefined (CustomerConnectorInfo) }) -> GetDiscoverySummaryResponse
+newGetDiscoverySummaryResponse' :: ({ servers :: Maybe (Number), applications :: Maybe (Number), serversMappedToApplications :: Maybe (Number), serversMappedtoTags :: Maybe (Number), agentSummary :: Maybe (CustomerAgentInfo), connectorSummary :: Maybe (CustomerConnectorInfo) } -> { servers :: Maybe (Number), applications :: Maybe (Number), serversMappedToApplications :: Maybe (Number), serversMappedtoTags :: Maybe (Number), agentSummary :: Maybe (CustomerAgentInfo), connectorSummary :: Maybe (CustomerConnectorInfo) }) -> GetDiscoverySummaryResponse
 ```
 
 Constructs GetDiscoverySummaryResponse's fields from required parameters
@@ -1566,7 +1566,7 @@ Constructs GetDiscoverySummaryResponse's fields from required parameters
 
 ``` purescript
 newtype InvalidParameterException
-  = InvalidParameterException { message :: NullOrUndefined (Message) }
+  = InvalidParameterException { message :: Maybe (Message) }
 ```
 
 <p>One or more parameters are not valid. Verify the parameters and try again.</p>
@@ -1591,7 +1591,7 @@ Constructs InvalidParameterException from required parameters
 #### `newInvalidParameterException'`
 
 ``` purescript
-newInvalidParameterException' :: ({ message :: NullOrUndefined (Message) } -> { message :: NullOrUndefined (Message) }) -> InvalidParameterException
+newInvalidParameterException' :: ({ message :: Maybe (Message) } -> { message :: Maybe (Message) }) -> InvalidParameterException
 ```
 
 Constructs InvalidParameterException's fields from required parameters
@@ -1600,7 +1600,7 @@ Constructs InvalidParameterException's fields from required parameters
 
 ``` purescript
 newtype InvalidParameterValueException
-  = InvalidParameterValueException { message :: NullOrUndefined (Message) }
+  = InvalidParameterValueException { message :: Maybe (Message) }
 ```
 
 <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
@@ -1625,7 +1625,7 @@ Constructs InvalidParameterValueException from required parameters
 #### `newInvalidParameterValueException'`
 
 ``` purescript
-newInvalidParameterValueException' :: ({ message :: NullOrUndefined (Message) } -> { message :: NullOrUndefined (Message) }) -> InvalidParameterValueException
+newInvalidParameterValueException' :: ({ message :: Maybe (Message) } -> { message :: Maybe (Message) }) -> InvalidParameterValueException
 ```
 
 Constructs InvalidParameterValueException's fields from required parameters
@@ -1634,7 +1634,7 @@ Constructs InvalidParameterValueException's fields from required parameters
 
 ``` purescript
 newtype ListConfigurationsRequest
-  = ListConfigurationsRequest { configurationType :: ConfigurationItemType, filters :: NullOrUndefined (Filters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken), orderBy :: NullOrUndefined (OrderByList) }
+  = ListConfigurationsRequest { configurationType :: ConfigurationItemType, filters :: Maybe (Filters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken), orderBy :: Maybe (OrderByList) }
 ```
 
 ##### Instances
@@ -1657,7 +1657,7 @@ Constructs ListConfigurationsRequest from required parameters
 #### `newListConfigurationsRequest'`
 
 ``` purescript
-newListConfigurationsRequest' :: ConfigurationItemType -> ({ configurationType :: ConfigurationItemType, filters :: NullOrUndefined (Filters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken), orderBy :: NullOrUndefined (OrderByList) } -> { configurationType :: ConfigurationItemType, filters :: NullOrUndefined (Filters), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (NextToken), orderBy :: NullOrUndefined (OrderByList) }) -> ListConfigurationsRequest
+newListConfigurationsRequest' :: ConfigurationItemType -> ({ configurationType :: ConfigurationItemType, filters :: Maybe (Filters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken), orderBy :: Maybe (OrderByList) } -> { configurationType :: ConfigurationItemType, filters :: Maybe (Filters), maxResults :: Maybe (Int), nextToken :: Maybe (NextToken), orderBy :: Maybe (OrderByList) }) -> ListConfigurationsRequest
 ```
 
 Constructs ListConfigurationsRequest's fields from required parameters
@@ -1666,7 +1666,7 @@ Constructs ListConfigurationsRequest's fields from required parameters
 
 ``` purescript
 newtype ListConfigurationsResponse
-  = ListConfigurationsResponse { configurations :: NullOrUndefined (Configurations), nextToken :: NullOrUndefined (NextToken) }
+  = ListConfigurationsResponse { configurations :: Maybe (Configurations), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1689,7 +1689,7 @@ Constructs ListConfigurationsResponse from required parameters
 #### `newListConfigurationsResponse'`
 
 ``` purescript
-newListConfigurationsResponse' :: ({ configurations :: NullOrUndefined (Configurations), nextToken :: NullOrUndefined (NextToken) } -> { configurations :: NullOrUndefined (Configurations), nextToken :: NullOrUndefined (NextToken) }) -> ListConfigurationsResponse
+newListConfigurationsResponse' :: ({ configurations :: Maybe (Configurations), nextToken :: Maybe (NextToken) } -> { configurations :: Maybe (Configurations), nextToken :: Maybe (NextToken) }) -> ListConfigurationsResponse
 ```
 
 Constructs ListConfigurationsResponse's fields from required parameters
@@ -1698,7 +1698,7 @@ Constructs ListConfigurationsResponse's fields from required parameters
 
 ``` purescript
 newtype ListServerNeighborsRequest
-  = ListServerNeighborsRequest { configurationId :: ConfigurationId, portInformationNeeded :: NullOrUndefined (Boolean), neighborConfigurationIds :: NullOrUndefined (ConfigurationIdList), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (String) }
+  = ListServerNeighborsRequest { configurationId :: ConfigurationId, portInformationNeeded :: Maybe (Boolean), neighborConfigurationIds :: Maybe (ConfigurationIdList), maxResults :: Maybe (Int), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1721,7 +1721,7 @@ Constructs ListServerNeighborsRequest from required parameters
 #### `newListServerNeighborsRequest'`
 
 ``` purescript
-newListServerNeighborsRequest' :: ConfigurationId -> ({ configurationId :: ConfigurationId, portInformationNeeded :: NullOrUndefined (Boolean), neighborConfigurationIds :: NullOrUndefined (ConfigurationIdList), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (String) } -> { configurationId :: ConfigurationId, portInformationNeeded :: NullOrUndefined (Boolean), neighborConfigurationIds :: NullOrUndefined (ConfigurationIdList), maxResults :: NullOrUndefined (Int), nextToken :: NullOrUndefined (String) }) -> ListServerNeighborsRequest
+newListServerNeighborsRequest' :: ConfigurationId -> ({ configurationId :: ConfigurationId, portInformationNeeded :: Maybe (Boolean), neighborConfigurationIds :: Maybe (ConfigurationIdList), maxResults :: Maybe (Int), nextToken :: Maybe (String) } -> { configurationId :: ConfigurationId, portInformationNeeded :: Maybe (Boolean), neighborConfigurationIds :: Maybe (ConfigurationIdList), maxResults :: Maybe (Int), nextToken :: Maybe (String) }) -> ListServerNeighborsRequest
 ```
 
 Constructs ListServerNeighborsRequest's fields from required parameters
@@ -1730,7 +1730,7 @@ Constructs ListServerNeighborsRequest's fields from required parameters
 
 ``` purescript
 newtype ListServerNeighborsResponse
-  = ListServerNeighborsResponse { neighbors :: NeighborDetailsList, nextToken :: NullOrUndefined (String), knownDependencyCount :: NullOrUndefined (Number) }
+  = ListServerNeighborsResponse { neighbors :: NeighborDetailsList, nextToken :: Maybe (String), knownDependencyCount :: Maybe (Number) }
 ```
 
 ##### Instances
@@ -1753,7 +1753,7 @@ Constructs ListServerNeighborsResponse from required parameters
 #### `newListServerNeighborsResponse'`
 
 ``` purescript
-newListServerNeighborsResponse' :: NeighborDetailsList -> ({ neighbors :: NeighborDetailsList, nextToken :: NullOrUndefined (String), knownDependencyCount :: NullOrUndefined (Number) } -> { neighbors :: NeighborDetailsList, nextToken :: NullOrUndefined (String), knownDependencyCount :: NullOrUndefined (Number) }) -> ListServerNeighborsResponse
+newListServerNeighborsResponse' :: NeighborDetailsList -> ({ neighbors :: NeighborDetailsList, nextToken :: Maybe (String), knownDependencyCount :: Maybe (Number) } -> { neighbors :: NeighborDetailsList, nextToken :: Maybe (String), knownDependencyCount :: Maybe (Number) }) -> ListServerNeighborsResponse
 ```
 
 Constructs ListServerNeighborsResponse's fields from required parameters
@@ -1778,7 +1778,7 @@ Encode Message
 
 ``` purescript
 newtype NeighborConnectionDetail
-  = NeighborConnectionDetail { sourceServerId :: ConfigurationId, destinationServerId :: ConfigurationId, destinationPort :: NullOrUndefined (BoxedInteger), transportProtocol :: NullOrUndefined (String), connectionsCount :: Number }
+  = NeighborConnectionDetail { sourceServerId :: ConfigurationId, destinationServerId :: ConfigurationId, destinationPort :: Maybe (BoxedInteger), transportProtocol :: Maybe (String), connectionsCount :: Number }
 ```
 
 <p>Details about neighboring servers.</p>
@@ -1803,7 +1803,7 @@ Constructs NeighborConnectionDetail from required parameters
 #### `newNeighborConnectionDetail'`
 
 ``` purescript
-newNeighborConnectionDetail' :: Number -> ConfigurationId -> ConfigurationId -> ({ sourceServerId :: ConfigurationId, destinationServerId :: ConfigurationId, destinationPort :: NullOrUndefined (BoxedInteger), transportProtocol :: NullOrUndefined (String), connectionsCount :: Number } -> { sourceServerId :: ConfigurationId, destinationServerId :: ConfigurationId, destinationPort :: NullOrUndefined (BoxedInteger), transportProtocol :: NullOrUndefined (String), connectionsCount :: Number }) -> NeighborConnectionDetail
+newNeighborConnectionDetail' :: Number -> ConfigurationId -> ConfigurationId -> ({ sourceServerId :: ConfigurationId, destinationServerId :: ConfigurationId, destinationPort :: Maybe (BoxedInteger), transportProtocol :: Maybe (String), connectionsCount :: Number } -> { sourceServerId :: ConfigurationId, destinationServerId :: ConfigurationId, destinationPort :: Maybe (BoxedInteger), transportProtocol :: Maybe (String), connectionsCount :: Number }) -> NeighborConnectionDetail
 ```
 
 Constructs NeighborConnectionDetail's fields from required parameters
@@ -1844,7 +1844,7 @@ Encode NextToken
 
 ``` purescript
 newtype OperationNotPermittedException
-  = OperationNotPermittedException { message :: NullOrUndefined (Message) }
+  = OperationNotPermittedException { message :: Maybe (Message) }
 ```
 
 <p>This operation is not permitted.</p>
@@ -1869,7 +1869,7 @@ Constructs OperationNotPermittedException from required parameters
 #### `newOperationNotPermittedException'`
 
 ``` purescript
-newOperationNotPermittedException' :: ({ message :: NullOrUndefined (Message) } -> { message :: NullOrUndefined (Message) }) -> OperationNotPermittedException
+newOperationNotPermittedException' :: ({ message :: Maybe (Message) } -> { message :: Maybe (Message) }) -> OperationNotPermittedException
 ```
 
 Constructs OperationNotPermittedException's fields from required parameters
@@ -1878,7 +1878,7 @@ Constructs OperationNotPermittedException's fields from required parameters
 
 ``` purescript
 newtype OrderByElement
-  = OrderByElement { fieldName :: String, sortOrder :: NullOrUndefined (OrderString') }
+  = OrderByElement { fieldName :: String, sortOrder :: Maybe (OrderString') }
 ```
 
 <p>A field and direction for ordered output.</p>
@@ -1903,7 +1903,7 @@ Constructs OrderByElement from required parameters
 #### `newOrderByElement'`
 
 ``` purescript
-newOrderByElement' :: String -> ({ fieldName :: String, sortOrder :: NullOrUndefined (OrderString') } -> { fieldName :: String, sortOrder :: NullOrUndefined (OrderString') }) -> OrderByElement
+newOrderByElement' :: String -> ({ fieldName :: String, sortOrder :: Maybe (OrderString') } -> { fieldName :: String, sortOrder :: Maybe (OrderString') }) -> OrderByElement
 ```
 
 Constructs OrderByElement's fields from required parameters
@@ -1928,7 +1928,7 @@ Encode OrderByList
 
 ``` purescript
 newtype ResourceNotFoundException
-  = ResourceNotFoundException { message :: NullOrUndefined (Message) }
+  = ResourceNotFoundException { message :: Maybe (Message) }
 ```
 
 <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
@@ -1953,7 +1953,7 @@ Constructs ResourceNotFoundException from required parameters
 #### `newResourceNotFoundException'`
 
 ``` purescript
-newResourceNotFoundException' :: ({ message :: NullOrUndefined (Message) } -> { message :: NullOrUndefined (Message) }) -> ResourceNotFoundException
+newResourceNotFoundException' :: ({ message :: Maybe (Message) } -> { message :: Maybe (Message) }) -> ResourceNotFoundException
 ```
 
 Constructs ResourceNotFoundException's fields from required parameters
@@ -1962,7 +1962,7 @@ Constructs ResourceNotFoundException's fields from required parameters
 
 ``` purescript
 newtype ServerInternalErrorException
-  = ServerInternalErrorException { message :: NullOrUndefined (Message) }
+  = ServerInternalErrorException { message :: Maybe (Message) }
 ```
 
 <p>The server experienced an internal error. Try again.</p>
@@ -1987,7 +1987,7 @@ Constructs ServerInternalErrorException from required parameters
 #### `newServerInternalErrorException'`
 
 ``` purescript
-newServerInternalErrorException' :: ({ message :: NullOrUndefined (Message) } -> { message :: NullOrUndefined (Message) }) -> ServerInternalErrorException
+newServerInternalErrorException' :: ({ message :: Maybe (Message) } -> { message :: Maybe (Message) }) -> ServerInternalErrorException
 ```
 
 Constructs ServerInternalErrorException's fields from required parameters
@@ -2028,7 +2028,7 @@ Constructs StartDataCollectionByAgentIdsRequest's fields from required parameter
 
 ``` purescript
 newtype StartDataCollectionByAgentIdsResponse
-  = StartDataCollectionByAgentIdsResponse { agentsConfigurationStatus :: NullOrUndefined (AgentConfigurationStatusList) }
+  = StartDataCollectionByAgentIdsResponse { agentsConfigurationStatus :: Maybe (AgentConfigurationStatusList) }
 ```
 
 ##### Instances
@@ -2051,7 +2051,7 @@ Constructs StartDataCollectionByAgentIdsResponse from required parameters
 #### `newStartDataCollectionByAgentIdsResponse'`
 
 ``` purescript
-newStartDataCollectionByAgentIdsResponse' :: ({ agentsConfigurationStatus :: NullOrUndefined (AgentConfigurationStatusList) } -> { agentsConfigurationStatus :: NullOrUndefined (AgentConfigurationStatusList) }) -> StartDataCollectionByAgentIdsResponse
+newStartDataCollectionByAgentIdsResponse' :: ({ agentsConfigurationStatus :: Maybe (AgentConfigurationStatusList) } -> { agentsConfigurationStatus :: Maybe (AgentConfigurationStatusList) }) -> StartDataCollectionByAgentIdsResponse
 ```
 
 Constructs StartDataCollectionByAgentIdsResponse's fields from required parameters
@@ -2060,7 +2060,7 @@ Constructs StartDataCollectionByAgentIdsResponse's fields from required paramete
 
 ``` purescript
 newtype StartExportTaskRequest
-  = StartExportTaskRequest { exportDataFormat :: NullOrUndefined (ExportDataFormats), filters :: NullOrUndefined (ExportFilters), startTime :: NullOrUndefined (TimeStamp), endTime :: NullOrUndefined (TimeStamp) }
+  = StartExportTaskRequest { exportDataFormat :: Maybe (ExportDataFormats), filters :: Maybe (ExportFilters), startTime :: Maybe (TimeStamp), endTime :: Maybe (TimeStamp) }
 ```
 
 ##### Instances
@@ -2083,7 +2083,7 @@ Constructs StartExportTaskRequest from required parameters
 #### `newStartExportTaskRequest'`
 
 ``` purescript
-newStartExportTaskRequest' :: ({ exportDataFormat :: NullOrUndefined (ExportDataFormats), filters :: NullOrUndefined (ExportFilters), startTime :: NullOrUndefined (TimeStamp), endTime :: NullOrUndefined (TimeStamp) } -> { exportDataFormat :: NullOrUndefined (ExportDataFormats), filters :: NullOrUndefined (ExportFilters), startTime :: NullOrUndefined (TimeStamp), endTime :: NullOrUndefined (TimeStamp) }) -> StartExportTaskRequest
+newStartExportTaskRequest' :: ({ exportDataFormat :: Maybe (ExportDataFormats), filters :: Maybe (ExportFilters), startTime :: Maybe (TimeStamp), endTime :: Maybe (TimeStamp) } -> { exportDataFormat :: Maybe (ExportDataFormats), filters :: Maybe (ExportFilters), startTime :: Maybe (TimeStamp), endTime :: Maybe (TimeStamp) }) -> StartExportTaskRequest
 ```
 
 Constructs StartExportTaskRequest's fields from required parameters
@@ -2092,7 +2092,7 @@ Constructs StartExportTaskRequest's fields from required parameters
 
 ``` purescript
 newtype StartExportTaskResponse
-  = StartExportTaskResponse { exportId :: NullOrUndefined (ConfigurationsExportId) }
+  = StartExportTaskResponse { exportId :: Maybe (ConfigurationsExportId) }
 ```
 
 ##### Instances
@@ -2115,7 +2115,7 @@ Constructs StartExportTaskResponse from required parameters
 #### `newStartExportTaskResponse'`
 
 ``` purescript
-newStartExportTaskResponse' :: ({ exportId :: NullOrUndefined (ConfigurationsExportId) } -> { exportId :: NullOrUndefined (ConfigurationsExportId) }) -> StartExportTaskResponse
+newStartExportTaskResponse' :: ({ exportId :: Maybe (ConfigurationsExportId) } -> { exportId :: Maybe (ConfigurationsExportId) }) -> StartExportTaskResponse
 ```
 
 Constructs StartExportTaskResponse's fields from required parameters
@@ -2156,7 +2156,7 @@ Constructs StopDataCollectionByAgentIdsRequest's fields from required parameters
 
 ``` purescript
 newtype StopDataCollectionByAgentIdsResponse
-  = StopDataCollectionByAgentIdsResponse { agentsConfigurationStatus :: NullOrUndefined (AgentConfigurationStatusList) }
+  = StopDataCollectionByAgentIdsResponse { agentsConfigurationStatus :: Maybe (AgentConfigurationStatusList) }
 ```
 
 ##### Instances
@@ -2179,7 +2179,7 @@ Constructs StopDataCollectionByAgentIdsResponse from required parameters
 #### `newStopDataCollectionByAgentIdsResponse'`
 
 ``` purescript
-newStopDataCollectionByAgentIdsResponse' :: ({ agentsConfigurationStatus :: NullOrUndefined (AgentConfigurationStatusList) } -> { agentsConfigurationStatus :: NullOrUndefined (AgentConfigurationStatusList) }) -> StopDataCollectionByAgentIdsResponse
+newStopDataCollectionByAgentIdsResponse' :: ({ agentsConfigurationStatus :: Maybe (AgentConfigurationStatusList) } -> { agentsConfigurationStatus :: Maybe (AgentConfigurationStatusList) }) -> StopDataCollectionByAgentIdsResponse
 ```
 
 Constructs StopDataCollectionByAgentIdsResponse's fields from required parameters
@@ -2336,7 +2336,7 @@ Encode TimeStamp
 
 ``` purescript
 newtype UpdateApplicationRequest
-  = UpdateApplicationRequest { configurationId :: ApplicationId, name :: NullOrUndefined (String), description :: NullOrUndefined (String) }
+  = UpdateApplicationRequest { configurationId :: ApplicationId, name :: Maybe (String), description :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2359,7 +2359,7 @@ Constructs UpdateApplicationRequest from required parameters
 #### `newUpdateApplicationRequest'`
 
 ``` purescript
-newUpdateApplicationRequest' :: ApplicationId -> ({ configurationId :: ApplicationId, name :: NullOrUndefined (String), description :: NullOrUndefined (String) } -> { configurationId :: ApplicationId, name :: NullOrUndefined (String), description :: NullOrUndefined (String) }) -> UpdateApplicationRequest
+newUpdateApplicationRequest' :: ApplicationId -> ({ configurationId :: ApplicationId, name :: Maybe (String), description :: Maybe (String) } -> { configurationId :: ApplicationId, name :: Maybe (String), description :: Maybe (String) }) -> UpdateApplicationRequest
 ```
 
 Constructs UpdateApplicationRequest's fields from required parameters

@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,9 +19,9 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.</p>
 newtype AgentConfigurationStatus = AgentConfigurationStatus 
-  { "agentId" :: NullOrUndefined (String)
-  , "operationSucceeded" :: NullOrUndefined (Boolean)
-  , "description" :: NullOrUndefined (String)
+  { "agentId" :: Maybe (String)
+  , "operationSucceeded" :: Maybe (Boolean)
+  , "description" :: Maybe (String)
   }
 derive instance newtypeAgentConfigurationStatus :: Newtype AgentConfigurationStatus _
 derive instance repGenericAgentConfigurationStatus :: Generic AgentConfigurationStatus _
@@ -32,12 +31,12 @@ instance encodeAgentConfigurationStatus :: Encode AgentConfigurationStatus where
 
 -- | Constructs AgentConfigurationStatus from required parameters
 newAgentConfigurationStatus :: AgentConfigurationStatus
-newAgentConfigurationStatus  = AgentConfigurationStatus { "agentId": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "operationSucceeded": (NullOrUndefined Nothing) }
+newAgentConfigurationStatus  = AgentConfigurationStatus { "agentId": Nothing, "description": Nothing, "operationSucceeded": Nothing }
 
 -- | Constructs AgentConfigurationStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAgentConfigurationStatus' :: ( { "agentId" :: NullOrUndefined (String) , "operationSucceeded" :: NullOrUndefined (Boolean) , "description" :: NullOrUndefined (String) } -> {"agentId" :: NullOrUndefined (String) , "operationSucceeded" :: NullOrUndefined (Boolean) , "description" :: NullOrUndefined (String) } ) -> AgentConfigurationStatus
-newAgentConfigurationStatus'  customize = (AgentConfigurationStatus <<< customize) { "agentId": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "operationSucceeded": (NullOrUndefined Nothing) }
+newAgentConfigurationStatus' :: ( { "agentId" :: Maybe (String) , "operationSucceeded" :: Maybe (Boolean) , "description" :: Maybe (String) } -> {"agentId" :: Maybe (String) , "operationSucceeded" :: Maybe (Boolean) , "description" :: Maybe (String) } ) -> AgentConfigurationStatus
+newAgentConfigurationStatus'  customize = (AgentConfigurationStatus <<< customize) { "agentId": Nothing, "description": Nothing, "operationSucceeded": Nothing }
 
 
 
@@ -70,16 +69,16 @@ instance encodeAgentIds :: Encode AgentIds where encode = genericEncode options
 
 -- | <p>Information about agents or connectors associated with the user’s AWS account. Information includes agent or connector IDs, IP addresses, media access control (MAC) addresses, agent or connector health, hostname where the agent or connector resides, and agent version for each agent.</p>
 newtype AgentInfo = AgentInfo 
-  { "agentId" :: NullOrUndefined (AgentId)
-  , "hostName" :: NullOrUndefined (String)
-  , "agentNetworkInfoList" :: NullOrUndefined (AgentNetworkInfoList)
-  , "connectorId" :: NullOrUndefined (String)
-  , "version" :: NullOrUndefined (String)
-  , "health" :: NullOrUndefined (AgentStatus)
-  , "lastHealthPingTime" :: NullOrUndefined (String)
-  , "collectionStatus" :: NullOrUndefined (String)
-  , "agentType" :: NullOrUndefined (String)
-  , "registeredTime" :: NullOrUndefined (String)
+  { "agentId" :: Maybe (AgentId)
+  , "hostName" :: Maybe (String)
+  , "agentNetworkInfoList" :: Maybe (AgentNetworkInfoList)
+  , "connectorId" :: Maybe (String)
+  , "version" :: Maybe (String)
+  , "health" :: Maybe (AgentStatus)
+  , "lastHealthPingTime" :: Maybe (String)
+  , "collectionStatus" :: Maybe (String)
+  , "agentType" :: Maybe (String)
+  , "registeredTime" :: Maybe (String)
   }
 derive instance newtypeAgentInfo :: Newtype AgentInfo _
 derive instance repGenericAgentInfo :: Generic AgentInfo _
@@ -89,19 +88,19 @@ instance encodeAgentInfo :: Encode AgentInfo where encode = genericEncode option
 
 -- | Constructs AgentInfo from required parameters
 newAgentInfo :: AgentInfo
-newAgentInfo  = AgentInfo { "agentId": (NullOrUndefined Nothing), "agentNetworkInfoList": (NullOrUndefined Nothing), "agentType": (NullOrUndefined Nothing), "collectionStatus": (NullOrUndefined Nothing), "connectorId": (NullOrUndefined Nothing), "health": (NullOrUndefined Nothing), "hostName": (NullOrUndefined Nothing), "lastHealthPingTime": (NullOrUndefined Nothing), "registeredTime": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newAgentInfo  = AgentInfo { "agentId": Nothing, "agentNetworkInfoList": Nothing, "agentType": Nothing, "collectionStatus": Nothing, "connectorId": Nothing, "health": Nothing, "hostName": Nothing, "lastHealthPingTime": Nothing, "registeredTime": Nothing, "version": Nothing }
 
 -- | Constructs AgentInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAgentInfo' :: ( { "agentId" :: NullOrUndefined (AgentId) , "hostName" :: NullOrUndefined (String) , "agentNetworkInfoList" :: NullOrUndefined (AgentNetworkInfoList) , "connectorId" :: NullOrUndefined (String) , "version" :: NullOrUndefined (String) , "health" :: NullOrUndefined (AgentStatus) , "lastHealthPingTime" :: NullOrUndefined (String) , "collectionStatus" :: NullOrUndefined (String) , "agentType" :: NullOrUndefined (String) , "registeredTime" :: NullOrUndefined (String) } -> {"agentId" :: NullOrUndefined (AgentId) , "hostName" :: NullOrUndefined (String) , "agentNetworkInfoList" :: NullOrUndefined (AgentNetworkInfoList) , "connectorId" :: NullOrUndefined (String) , "version" :: NullOrUndefined (String) , "health" :: NullOrUndefined (AgentStatus) , "lastHealthPingTime" :: NullOrUndefined (String) , "collectionStatus" :: NullOrUndefined (String) , "agentType" :: NullOrUndefined (String) , "registeredTime" :: NullOrUndefined (String) } ) -> AgentInfo
-newAgentInfo'  customize = (AgentInfo <<< customize) { "agentId": (NullOrUndefined Nothing), "agentNetworkInfoList": (NullOrUndefined Nothing), "agentType": (NullOrUndefined Nothing), "collectionStatus": (NullOrUndefined Nothing), "connectorId": (NullOrUndefined Nothing), "health": (NullOrUndefined Nothing), "hostName": (NullOrUndefined Nothing), "lastHealthPingTime": (NullOrUndefined Nothing), "registeredTime": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newAgentInfo' :: ( { "agentId" :: Maybe (AgentId) , "hostName" :: Maybe (String) , "agentNetworkInfoList" :: Maybe (AgentNetworkInfoList) , "connectorId" :: Maybe (String) , "version" :: Maybe (String) , "health" :: Maybe (AgentStatus) , "lastHealthPingTime" :: Maybe (String) , "collectionStatus" :: Maybe (String) , "agentType" :: Maybe (String) , "registeredTime" :: Maybe (String) } -> {"agentId" :: Maybe (AgentId) , "hostName" :: Maybe (String) , "agentNetworkInfoList" :: Maybe (AgentNetworkInfoList) , "connectorId" :: Maybe (String) , "version" :: Maybe (String) , "health" :: Maybe (AgentStatus) , "lastHealthPingTime" :: Maybe (String) , "collectionStatus" :: Maybe (String) , "agentType" :: Maybe (String) , "registeredTime" :: Maybe (String) } ) -> AgentInfo
+newAgentInfo'  customize = (AgentInfo <<< customize) { "agentId": Nothing, "agentNetworkInfoList": Nothing, "agentType": Nothing, "collectionStatus": Nothing, "connectorId": Nothing, "health": Nothing, "hostName": Nothing, "lastHealthPingTime": Nothing, "registeredTime": Nothing, "version": Nothing }
 
 
 
 -- | <p>Network details about the host where the agent/connector resides.</p>
 newtype AgentNetworkInfo = AgentNetworkInfo 
-  { "ipAddress" :: NullOrUndefined (String)
-  , "macAddress" :: NullOrUndefined (String)
+  { "ipAddress" :: Maybe (String)
+  , "macAddress" :: Maybe (String)
   }
 derive instance newtypeAgentNetworkInfo :: Newtype AgentNetworkInfo _
 derive instance repGenericAgentNetworkInfo :: Generic AgentNetworkInfo _
@@ -111,12 +110,12 @@ instance encodeAgentNetworkInfo :: Encode AgentNetworkInfo where encode = generi
 
 -- | Constructs AgentNetworkInfo from required parameters
 newAgentNetworkInfo :: AgentNetworkInfo
-newAgentNetworkInfo  = AgentNetworkInfo { "ipAddress": (NullOrUndefined Nothing), "macAddress": (NullOrUndefined Nothing) }
+newAgentNetworkInfo  = AgentNetworkInfo { "ipAddress": Nothing, "macAddress": Nothing }
 
 -- | Constructs AgentNetworkInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAgentNetworkInfo' :: ( { "ipAddress" :: NullOrUndefined (String) , "macAddress" :: NullOrUndefined (String) } -> {"ipAddress" :: NullOrUndefined (String) , "macAddress" :: NullOrUndefined (String) } ) -> AgentNetworkInfo
-newAgentNetworkInfo'  customize = (AgentNetworkInfo <<< customize) { "ipAddress": (NullOrUndefined Nothing), "macAddress": (NullOrUndefined Nothing) }
+newAgentNetworkInfo' :: ( { "ipAddress" :: Maybe (String) , "macAddress" :: Maybe (String) } -> {"ipAddress" :: Maybe (String) , "macAddress" :: Maybe (String) } ) -> AgentNetworkInfo
+newAgentNetworkInfo'  customize = (AgentNetworkInfo <<< customize) { "ipAddress": Nothing, "macAddress": Nothing }
 
 
 
@@ -197,7 +196,7 @@ instance encodeAssociateConfigurationItemsToApplicationResponse :: Encode Associ
 
 -- | <p>The AWS user account does not have permission to perform the action. Check the IAM policy associated with this account.</p>
 newtype AuthorizationErrorException = AuthorizationErrorException 
-  { "message" :: NullOrUndefined (Message)
+  { "message" :: Maybe (Message)
   }
 derive instance newtypeAuthorizationErrorException :: Newtype AuthorizationErrorException _
 derive instance repGenericAuthorizationErrorException :: Generic AuthorizationErrorException _
@@ -207,12 +206,12 @@ instance encodeAuthorizationErrorException :: Encode AuthorizationErrorException
 
 -- | Constructs AuthorizationErrorException from required parameters
 newAuthorizationErrorException :: AuthorizationErrorException
-newAuthorizationErrorException  = AuthorizationErrorException { "message": (NullOrUndefined Nothing) }
+newAuthorizationErrorException  = AuthorizationErrorException { "message": Nothing }
 
 -- | Constructs AuthorizationErrorException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAuthorizationErrorException' :: ( { "message" :: NullOrUndefined (Message) } -> {"message" :: NullOrUndefined (Message) } ) -> AuthorizationErrorException
-newAuthorizationErrorException'  customize = (AuthorizationErrorException <<< customize) { "message": (NullOrUndefined Nothing) }
+newAuthorizationErrorException' :: ( { "message" :: Maybe (Message) } -> {"message" :: Maybe (Message) } ) -> AuthorizationErrorException
+newAuthorizationErrorException'  customize = (AuthorizationErrorException <<< customize) { "message": Nothing }
 
 
 
@@ -272,11 +271,11 @@ instance encodeConfigurationItemType :: Encode ConfigurationItemType where encod
 
 -- | <p>Tags for a configuration item. Tags are metadata that help you categorize IT assets.</p>
 newtype ConfigurationTag = ConfigurationTag 
-  { "configurationType" :: NullOrUndefined (ConfigurationItemType)
-  , "configurationId" :: NullOrUndefined (ConfigurationId)
-  , "key" :: NullOrUndefined (TagKey)
-  , "value" :: NullOrUndefined (TagValue)
-  , "timeOfCreation" :: NullOrUndefined (TimeStamp)
+  { "configurationType" :: Maybe (ConfigurationItemType)
+  , "configurationId" :: Maybe (ConfigurationId)
+  , "key" :: Maybe (TagKey)
+  , "value" :: Maybe (TagValue)
+  , "timeOfCreation" :: Maybe (TimeStamp)
   }
 derive instance newtypeConfigurationTag :: Newtype ConfigurationTag _
 derive instance repGenericConfigurationTag :: Generic ConfigurationTag _
@@ -286,12 +285,12 @@ instance encodeConfigurationTag :: Encode ConfigurationTag where encode = generi
 
 -- | Constructs ConfigurationTag from required parameters
 newConfigurationTag :: ConfigurationTag
-newConfigurationTag  = ConfigurationTag { "configurationId": (NullOrUndefined Nothing), "configurationType": (NullOrUndefined Nothing), "key": (NullOrUndefined Nothing), "timeOfCreation": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newConfigurationTag  = ConfigurationTag { "configurationId": Nothing, "configurationType": Nothing, "key": Nothing, "timeOfCreation": Nothing, "value": Nothing }
 
 -- | Constructs ConfigurationTag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConfigurationTag' :: ( { "configurationType" :: NullOrUndefined (ConfigurationItemType) , "configurationId" :: NullOrUndefined (ConfigurationId) , "key" :: NullOrUndefined (TagKey) , "value" :: NullOrUndefined (TagValue) , "timeOfCreation" :: NullOrUndefined (TimeStamp) } -> {"configurationType" :: NullOrUndefined (ConfigurationItemType) , "configurationId" :: NullOrUndefined (ConfigurationId) , "key" :: NullOrUndefined (TagKey) , "value" :: NullOrUndefined (TagValue) , "timeOfCreation" :: NullOrUndefined (TimeStamp) } ) -> ConfigurationTag
-newConfigurationTag'  customize = (ConfigurationTag <<< customize) { "configurationId": (NullOrUndefined Nothing), "configurationType": (NullOrUndefined Nothing), "key": (NullOrUndefined Nothing), "timeOfCreation": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newConfigurationTag' :: ( { "configurationType" :: Maybe (ConfigurationItemType) , "configurationId" :: Maybe (ConfigurationId) , "key" :: Maybe (TagKey) , "value" :: Maybe (TagValue) , "timeOfCreation" :: Maybe (TimeStamp) } -> {"configurationType" :: Maybe (ConfigurationItemType) , "configurationId" :: Maybe (ConfigurationId) , "key" :: Maybe (TagKey) , "value" :: Maybe (TagValue) , "timeOfCreation" :: Maybe (TimeStamp) } ) -> ConfigurationTag
+newConfigurationTag'  customize = (ConfigurationTag <<< customize) { "configurationId": Nothing, "configurationType": Nothing, "key": Nothing, "timeOfCreation": Nothing, "value": Nothing }
 
 
 
@@ -333,7 +332,7 @@ instance encodeConfigurationsExportId :: Encode ConfigurationsExportId where enc
 
 newtype CreateApplicationRequest = CreateApplicationRequest 
   { "name" :: (String)
-  , "description" :: NullOrUndefined (String)
+  , "description" :: Maybe (String)
   }
 derive instance newtypeCreateApplicationRequest :: Newtype CreateApplicationRequest _
 derive instance repGenericCreateApplicationRequest :: Generic CreateApplicationRequest _
@@ -343,17 +342,17 @@ instance encodeCreateApplicationRequest :: Encode CreateApplicationRequest where
 
 -- | Constructs CreateApplicationRequest from required parameters
 newCreateApplicationRequest :: String -> CreateApplicationRequest
-newCreateApplicationRequest _name = CreateApplicationRequest { "name": _name, "description": (NullOrUndefined Nothing) }
+newCreateApplicationRequest _name = CreateApplicationRequest { "name": _name, "description": Nothing }
 
 -- | Constructs CreateApplicationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApplicationRequest' :: String -> ( { "name" :: (String) , "description" :: NullOrUndefined (String) } -> {"name" :: (String) , "description" :: NullOrUndefined (String) } ) -> CreateApplicationRequest
-newCreateApplicationRequest' _name customize = (CreateApplicationRequest <<< customize) { "name": _name, "description": (NullOrUndefined Nothing) }
+newCreateApplicationRequest' :: String -> ( { "name" :: (String) , "description" :: Maybe (String) } -> {"name" :: (String) , "description" :: Maybe (String) } ) -> CreateApplicationRequest
+newCreateApplicationRequest' _name customize = (CreateApplicationRequest <<< customize) { "name": _name, "description": Nothing }
 
 
 
 newtype CreateApplicationResponse = CreateApplicationResponse 
-  { "configurationId" :: NullOrUndefined (String)
+  { "configurationId" :: Maybe (String)
   }
 derive instance newtypeCreateApplicationResponse :: Newtype CreateApplicationResponse _
 derive instance repGenericCreateApplicationResponse :: Generic CreateApplicationResponse _
@@ -363,12 +362,12 @@ instance encodeCreateApplicationResponse :: Encode CreateApplicationResponse whe
 
 -- | Constructs CreateApplicationResponse from required parameters
 newCreateApplicationResponse :: CreateApplicationResponse
-newCreateApplicationResponse  = CreateApplicationResponse { "configurationId": (NullOrUndefined Nothing) }
+newCreateApplicationResponse  = CreateApplicationResponse { "configurationId": Nothing }
 
 -- | Constructs CreateApplicationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApplicationResponse' :: ( { "configurationId" :: NullOrUndefined (String) } -> {"configurationId" :: NullOrUndefined (String) } ) -> CreateApplicationResponse
-newCreateApplicationResponse'  customize = (CreateApplicationResponse <<< customize) { "configurationId": (NullOrUndefined Nothing) }
+newCreateApplicationResponse' :: ( { "configurationId" :: Maybe (String) } -> {"configurationId" :: Maybe (String) } ) -> CreateApplicationResponse
+newCreateApplicationResponse'  customize = (CreateApplicationResponse <<< customize) { "configurationId": Nothing }
 
 
 
@@ -487,7 +486,7 @@ instance encodeDeleteApplicationsResponse :: Encode DeleteApplicationsResponse w
 
 newtype DeleteTagsRequest = DeleteTagsRequest 
   { "configurationIds" :: (ConfigurationIdList)
-  , "tags" :: NullOrUndefined (TagSet)
+  , "tags" :: Maybe (TagSet)
   }
 derive instance newtypeDeleteTagsRequest :: Newtype DeleteTagsRequest _
 derive instance repGenericDeleteTagsRequest :: Generic DeleteTagsRequest _
@@ -497,12 +496,12 @@ instance encodeDeleteTagsRequest :: Encode DeleteTagsRequest where encode = gene
 
 -- | Constructs DeleteTagsRequest from required parameters
 newDeleteTagsRequest :: ConfigurationIdList -> DeleteTagsRequest
-newDeleteTagsRequest _configurationIds = DeleteTagsRequest { "configurationIds": _configurationIds, "tags": (NullOrUndefined Nothing) }
+newDeleteTagsRequest _configurationIds = DeleteTagsRequest { "configurationIds": _configurationIds, "tags": Nothing }
 
 -- | Constructs DeleteTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteTagsRequest' :: ConfigurationIdList -> ( { "configurationIds" :: (ConfigurationIdList) , "tags" :: NullOrUndefined (TagSet) } -> {"configurationIds" :: (ConfigurationIdList) , "tags" :: NullOrUndefined (TagSet) } ) -> DeleteTagsRequest
-newDeleteTagsRequest' _configurationIds customize = (DeleteTagsRequest <<< customize) { "configurationIds": _configurationIds, "tags": (NullOrUndefined Nothing) }
+newDeleteTagsRequest' :: ConfigurationIdList -> ( { "configurationIds" :: (ConfigurationIdList) , "tags" :: Maybe (TagSet) } -> {"configurationIds" :: (ConfigurationIdList) , "tags" :: Maybe (TagSet) } ) -> DeleteTagsRequest
+newDeleteTagsRequest' _configurationIds customize = (DeleteTagsRequest <<< customize) { "configurationIds": _configurationIds, "tags": Nothing }
 
 
 
@@ -516,10 +515,10 @@ instance encodeDeleteTagsResponse :: Encode DeleteTagsResponse where encode = ge
 
 
 newtype DescribeAgentsRequest = DescribeAgentsRequest 
-  { "agentIds" :: NullOrUndefined (AgentIds)
-  , "filters" :: NullOrUndefined (Filters)
-  , "maxResults" :: NullOrUndefined (Int)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "agentIds" :: Maybe (AgentIds)
+  , "filters" :: Maybe (Filters)
+  , "maxResults" :: Maybe (Int)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeAgentsRequest :: Newtype DescribeAgentsRequest _
 derive instance repGenericDescribeAgentsRequest :: Generic DescribeAgentsRequest _
@@ -529,18 +528,18 @@ instance encodeDescribeAgentsRequest :: Encode DescribeAgentsRequest where encod
 
 -- | Constructs DescribeAgentsRequest from required parameters
 newDescribeAgentsRequest :: DescribeAgentsRequest
-newDescribeAgentsRequest  = DescribeAgentsRequest { "agentIds": (NullOrUndefined Nothing), "filters": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeAgentsRequest  = DescribeAgentsRequest { "agentIds": Nothing, "filters": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeAgentsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeAgentsRequest' :: ( { "agentIds" :: NullOrUndefined (AgentIds) , "filters" :: NullOrUndefined (Filters) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) } -> {"agentIds" :: NullOrUndefined (AgentIds) , "filters" :: NullOrUndefined (Filters) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeAgentsRequest
-newDescribeAgentsRequest'  customize = (DescribeAgentsRequest <<< customize) { "agentIds": (NullOrUndefined Nothing), "filters": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeAgentsRequest' :: ( { "agentIds" :: Maybe (AgentIds) , "filters" :: Maybe (Filters) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) } -> {"agentIds" :: Maybe (AgentIds) , "filters" :: Maybe (Filters) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) } ) -> DescribeAgentsRequest
+newDescribeAgentsRequest'  customize = (DescribeAgentsRequest <<< customize) { "agentIds": Nothing, "filters": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeAgentsResponse = DescribeAgentsResponse 
-  { "agentsInfo" :: NullOrUndefined (AgentsInfo)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "agentsInfo" :: Maybe (AgentsInfo)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeAgentsResponse :: Newtype DescribeAgentsResponse _
 derive instance repGenericDescribeAgentsResponse :: Generic DescribeAgentsResponse _
@@ -550,12 +549,12 @@ instance encodeDescribeAgentsResponse :: Encode DescribeAgentsResponse where enc
 
 -- | Constructs DescribeAgentsResponse from required parameters
 newDescribeAgentsResponse :: DescribeAgentsResponse
-newDescribeAgentsResponse  = DescribeAgentsResponse { "agentsInfo": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeAgentsResponse  = DescribeAgentsResponse { "agentsInfo": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeAgentsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeAgentsResponse' :: ( { "agentsInfo" :: NullOrUndefined (AgentsInfo) , "nextToken" :: NullOrUndefined (NextToken) } -> {"agentsInfo" :: NullOrUndefined (AgentsInfo) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeAgentsResponse
-newDescribeAgentsResponse'  customize = (DescribeAgentsResponse <<< customize) { "agentsInfo": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeAgentsResponse' :: ( { "agentsInfo" :: Maybe (AgentsInfo) , "nextToken" :: Maybe (NextToken) } -> {"agentsInfo" :: Maybe (AgentsInfo) , "nextToken" :: Maybe (NextToken) } ) -> DescribeAgentsResponse
+newDescribeAgentsResponse'  customize = (DescribeAgentsResponse <<< customize) { "agentsInfo": Nothing, "nextToken": Nothing }
 
 
 
@@ -598,7 +597,7 @@ newDescribeConfigurationsRequest' _configurationIds customize = (DescribeConfigu
 
 
 newtype DescribeConfigurationsResponse = DescribeConfigurationsResponse 
-  { "configurations" :: NullOrUndefined (DescribeConfigurationsAttributes)
+  { "configurations" :: Maybe (DescribeConfigurationsAttributes)
   }
 derive instance newtypeDescribeConfigurationsResponse :: Newtype DescribeConfigurationsResponse _
 derive instance repGenericDescribeConfigurationsResponse :: Generic DescribeConfigurationsResponse _
@@ -608,19 +607,19 @@ instance encodeDescribeConfigurationsResponse :: Encode DescribeConfigurationsRe
 
 -- | Constructs DescribeConfigurationsResponse from required parameters
 newDescribeConfigurationsResponse :: DescribeConfigurationsResponse
-newDescribeConfigurationsResponse  = DescribeConfigurationsResponse { "configurations": (NullOrUndefined Nothing) }
+newDescribeConfigurationsResponse  = DescribeConfigurationsResponse { "configurations": Nothing }
 
 -- | Constructs DescribeConfigurationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeConfigurationsResponse' :: ( { "configurations" :: NullOrUndefined (DescribeConfigurationsAttributes) } -> {"configurations" :: NullOrUndefined (DescribeConfigurationsAttributes) } ) -> DescribeConfigurationsResponse
-newDescribeConfigurationsResponse'  customize = (DescribeConfigurationsResponse <<< customize) { "configurations": (NullOrUndefined Nothing) }
+newDescribeConfigurationsResponse' :: ( { "configurations" :: Maybe (DescribeConfigurationsAttributes) } -> {"configurations" :: Maybe (DescribeConfigurationsAttributes) } ) -> DescribeConfigurationsResponse
+newDescribeConfigurationsResponse'  customize = (DescribeConfigurationsResponse <<< customize) { "configurations": Nothing }
 
 
 
 newtype DescribeExportConfigurationsRequest = DescribeExportConfigurationsRequest 
-  { "exportIds" :: NullOrUndefined (ExportIds)
-  , "maxResults" :: NullOrUndefined (Int)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "exportIds" :: Maybe (ExportIds)
+  , "maxResults" :: Maybe (Int)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeExportConfigurationsRequest :: Newtype DescribeExportConfigurationsRequest _
 derive instance repGenericDescribeExportConfigurationsRequest :: Generic DescribeExportConfigurationsRequest _
@@ -630,18 +629,18 @@ instance encodeDescribeExportConfigurationsRequest :: Encode DescribeExportConfi
 
 -- | Constructs DescribeExportConfigurationsRequest from required parameters
 newDescribeExportConfigurationsRequest :: DescribeExportConfigurationsRequest
-newDescribeExportConfigurationsRequest  = DescribeExportConfigurationsRequest { "exportIds": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportConfigurationsRequest  = DescribeExportConfigurationsRequest { "exportIds": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeExportConfigurationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeExportConfigurationsRequest' :: ( { "exportIds" :: NullOrUndefined (ExportIds) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) } -> {"exportIds" :: NullOrUndefined (ExportIds) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeExportConfigurationsRequest
-newDescribeExportConfigurationsRequest'  customize = (DescribeExportConfigurationsRequest <<< customize) { "exportIds": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportConfigurationsRequest' :: ( { "exportIds" :: Maybe (ExportIds) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) } -> {"exportIds" :: Maybe (ExportIds) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) } ) -> DescribeExportConfigurationsRequest
+newDescribeExportConfigurationsRequest'  customize = (DescribeExportConfigurationsRequest <<< customize) { "exportIds": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeExportConfigurationsResponse = DescribeExportConfigurationsResponse 
-  { "exportsInfo" :: NullOrUndefined (ExportsInfo)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "exportsInfo" :: Maybe (ExportsInfo)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeExportConfigurationsResponse :: Newtype DescribeExportConfigurationsResponse _
 derive instance repGenericDescribeExportConfigurationsResponse :: Generic DescribeExportConfigurationsResponse _
@@ -651,20 +650,20 @@ instance encodeDescribeExportConfigurationsResponse :: Encode DescribeExportConf
 
 -- | Constructs DescribeExportConfigurationsResponse from required parameters
 newDescribeExportConfigurationsResponse :: DescribeExportConfigurationsResponse
-newDescribeExportConfigurationsResponse  = DescribeExportConfigurationsResponse { "exportsInfo": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportConfigurationsResponse  = DescribeExportConfigurationsResponse { "exportsInfo": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeExportConfigurationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeExportConfigurationsResponse' :: ( { "exportsInfo" :: NullOrUndefined (ExportsInfo) , "nextToken" :: NullOrUndefined (NextToken) } -> {"exportsInfo" :: NullOrUndefined (ExportsInfo) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeExportConfigurationsResponse
-newDescribeExportConfigurationsResponse'  customize = (DescribeExportConfigurationsResponse <<< customize) { "exportsInfo": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportConfigurationsResponse' :: ( { "exportsInfo" :: Maybe (ExportsInfo) , "nextToken" :: Maybe (NextToken) } -> {"exportsInfo" :: Maybe (ExportsInfo) , "nextToken" :: Maybe (NextToken) } ) -> DescribeExportConfigurationsResponse
+newDescribeExportConfigurationsResponse'  customize = (DescribeExportConfigurationsResponse <<< customize) { "exportsInfo": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeExportTasksRequest = DescribeExportTasksRequest 
-  { "exportIds" :: NullOrUndefined (ExportIds)
-  , "filters" :: NullOrUndefined (ExportFilters)
-  , "maxResults" :: NullOrUndefined (Int)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "exportIds" :: Maybe (ExportIds)
+  , "filters" :: Maybe (ExportFilters)
+  , "maxResults" :: Maybe (Int)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeExportTasksRequest :: Newtype DescribeExportTasksRequest _
 derive instance repGenericDescribeExportTasksRequest :: Generic DescribeExportTasksRequest _
@@ -674,18 +673,18 @@ instance encodeDescribeExportTasksRequest :: Encode DescribeExportTasksRequest w
 
 -- | Constructs DescribeExportTasksRequest from required parameters
 newDescribeExportTasksRequest :: DescribeExportTasksRequest
-newDescribeExportTasksRequest  = DescribeExportTasksRequest { "exportIds": (NullOrUndefined Nothing), "filters": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportTasksRequest  = DescribeExportTasksRequest { "exportIds": Nothing, "filters": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeExportTasksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeExportTasksRequest' :: ( { "exportIds" :: NullOrUndefined (ExportIds) , "filters" :: NullOrUndefined (ExportFilters) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) } -> {"exportIds" :: NullOrUndefined (ExportIds) , "filters" :: NullOrUndefined (ExportFilters) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeExportTasksRequest
-newDescribeExportTasksRequest'  customize = (DescribeExportTasksRequest <<< customize) { "exportIds": (NullOrUndefined Nothing), "filters": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportTasksRequest' :: ( { "exportIds" :: Maybe (ExportIds) , "filters" :: Maybe (ExportFilters) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) } -> {"exportIds" :: Maybe (ExportIds) , "filters" :: Maybe (ExportFilters) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) } ) -> DescribeExportTasksRequest
+newDescribeExportTasksRequest'  customize = (DescribeExportTasksRequest <<< customize) { "exportIds": Nothing, "filters": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse 
-  { "exportsInfo" :: NullOrUndefined (ExportsInfo)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "exportsInfo" :: Maybe (ExportsInfo)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeExportTasksResponse :: Newtype DescribeExportTasksResponse _
 derive instance repGenericDescribeExportTasksResponse :: Generic DescribeExportTasksResponse _
@@ -695,19 +694,19 @@ instance encodeDescribeExportTasksResponse :: Encode DescribeExportTasksResponse
 
 -- | Constructs DescribeExportTasksResponse from required parameters
 newDescribeExportTasksResponse :: DescribeExportTasksResponse
-newDescribeExportTasksResponse  = DescribeExportTasksResponse { "exportsInfo": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportTasksResponse  = DescribeExportTasksResponse { "exportsInfo": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeExportTasksResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeExportTasksResponse' :: ( { "exportsInfo" :: NullOrUndefined (ExportsInfo) , "nextToken" :: NullOrUndefined (NextToken) } -> {"exportsInfo" :: NullOrUndefined (ExportsInfo) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeExportTasksResponse
-newDescribeExportTasksResponse'  customize = (DescribeExportTasksResponse <<< customize) { "exportsInfo": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeExportTasksResponse' :: ( { "exportsInfo" :: Maybe (ExportsInfo) , "nextToken" :: Maybe (NextToken) } -> {"exportsInfo" :: Maybe (ExportsInfo) , "nextToken" :: Maybe (NextToken) } ) -> DescribeExportTasksResponse
+newDescribeExportTasksResponse'  customize = (DescribeExportTasksResponse <<< customize) { "exportsInfo": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeTagsRequest = DescribeTagsRequest 
-  { "filters" :: NullOrUndefined (TagFilters)
-  , "maxResults" :: NullOrUndefined (Int)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "filters" :: Maybe (TagFilters)
+  , "maxResults" :: Maybe (Int)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeTagsRequest :: Newtype DescribeTagsRequest _
 derive instance repGenericDescribeTagsRequest :: Generic DescribeTagsRequest _
@@ -717,18 +716,18 @@ instance encodeDescribeTagsRequest :: Encode DescribeTagsRequest where encode = 
 
 -- | Constructs DescribeTagsRequest from required parameters
 newDescribeTagsRequest :: DescribeTagsRequest
-newDescribeTagsRequest  = DescribeTagsRequest { "filters": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeTagsRequest  = DescribeTagsRequest { "filters": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTagsRequest' :: ( { "filters" :: NullOrUndefined (TagFilters) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) } -> {"filters" :: NullOrUndefined (TagFilters) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeTagsRequest
-newDescribeTagsRequest'  customize = (DescribeTagsRequest <<< customize) { "filters": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeTagsRequest' :: ( { "filters" :: Maybe (TagFilters) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) } -> {"filters" :: Maybe (TagFilters) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) } ) -> DescribeTagsRequest
+newDescribeTagsRequest'  customize = (DescribeTagsRequest <<< customize) { "filters": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeTagsResponse = DescribeTagsResponse 
-  { "tags" :: NullOrUndefined (ConfigurationTagSet)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "tags" :: Maybe (ConfigurationTagSet)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeDescribeTagsResponse :: Newtype DescribeTagsResponse _
 derive instance repGenericDescribeTagsResponse :: Generic DescribeTagsResponse _
@@ -738,12 +737,12 @@ instance encodeDescribeTagsResponse :: Encode DescribeTagsResponse where encode 
 
 -- | Constructs DescribeTagsResponse from required parameters
 newDescribeTagsResponse :: DescribeTagsResponse
-newDescribeTagsResponse  = DescribeTagsResponse { "nextToken": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newDescribeTagsResponse  = DescribeTagsResponse { "nextToken": Nothing, "tags": Nothing }
 
 -- | Constructs DescribeTagsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTagsResponse' :: ( { "tags" :: NullOrUndefined (ConfigurationTagSet) , "nextToken" :: NullOrUndefined (NextToken) } -> {"tags" :: NullOrUndefined (ConfigurationTagSet) , "nextToken" :: NullOrUndefined (NextToken) } ) -> DescribeTagsResponse
-newDescribeTagsResponse'  customize = (DescribeTagsResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newDescribeTagsResponse' :: ( { "tags" :: Maybe (ConfigurationTagSet) , "nextToken" :: Maybe (NextToken) } -> {"tags" :: Maybe (ConfigurationTagSet) , "nextToken" :: Maybe (NextToken) } ) -> DescribeTagsResponse
+newDescribeTagsResponse'  customize = (DescribeTagsResponse <<< customize) { "nextToken": Nothing, "tags": Nothing }
 
 
 
@@ -778,7 +777,7 @@ instance encodeDisassociateConfigurationItemsFromApplicationResponse :: Encode D
 
 
 newtype ExportConfigurationsResponse = ExportConfigurationsResponse 
-  { "exportId" :: NullOrUndefined (ConfigurationsExportId)
+  { "exportId" :: Maybe (ConfigurationsExportId)
   }
 derive instance newtypeExportConfigurationsResponse :: Newtype ExportConfigurationsResponse _
 derive instance repGenericExportConfigurationsResponse :: Generic ExportConfigurationsResponse _
@@ -788,12 +787,12 @@ instance encodeExportConfigurationsResponse :: Encode ExportConfigurationsRespon
 
 -- | Constructs ExportConfigurationsResponse from required parameters
 newExportConfigurationsResponse :: ExportConfigurationsResponse
-newExportConfigurationsResponse  = ExportConfigurationsResponse { "exportId": (NullOrUndefined Nothing) }
+newExportConfigurationsResponse  = ExportConfigurationsResponse { "exportId": Nothing }
 
 -- | Constructs ExportConfigurationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExportConfigurationsResponse' :: ( { "exportId" :: NullOrUndefined (ConfigurationsExportId) } -> {"exportId" :: NullOrUndefined (ConfigurationsExportId) } ) -> ExportConfigurationsResponse
-newExportConfigurationsResponse'  customize = (ExportConfigurationsResponse <<< customize) { "exportId": (NullOrUndefined Nothing) }
+newExportConfigurationsResponse' :: ( { "exportId" :: Maybe (ConfigurationsExportId) } -> {"exportId" :: Maybe (ConfigurationsExportId) } ) -> ExportConfigurationsResponse
+newExportConfigurationsResponse'  customize = (ExportConfigurationsResponse <<< customize) { "exportId": Nothing }
 
 
 
@@ -861,11 +860,11 @@ newtype ExportInfo = ExportInfo
   { "exportId" :: (ConfigurationsExportId)
   , "exportStatus" :: (ExportStatus)
   , "statusMessage" :: (ExportStatusMessage)
-  , "configurationsDownloadUrl" :: NullOrUndefined (ConfigurationsDownloadUrl)
+  , "configurationsDownloadUrl" :: Maybe (ConfigurationsDownloadUrl)
   , "exportRequestTime" :: (ExportRequestTime)
-  , "isTruncated" :: NullOrUndefined (Boolean)
-  , "requestedStartTime" :: NullOrUndefined (TimeStamp)
-  , "requestedEndTime" :: NullOrUndefined (TimeStamp)
+  , "isTruncated" :: Maybe (Boolean)
+  , "requestedStartTime" :: Maybe (TimeStamp)
+  , "requestedEndTime" :: Maybe (TimeStamp)
   }
 derive instance newtypeExportInfo :: Newtype ExportInfo _
 derive instance repGenericExportInfo :: Generic ExportInfo _
@@ -875,12 +874,12 @@ instance encodeExportInfo :: Encode ExportInfo where encode = genericEncode opti
 
 -- | Constructs ExportInfo from required parameters
 newExportInfo :: ConfigurationsExportId -> ExportRequestTime -> ExportStatus -> ExportStatusMessage -> ExportInfo
-newExportInfo _exportId _exportRequestTime _exportStatus _statusMessage = ExportInfo { "exportId": _exportId, "exportRequestTime": _exportRequestTime, "exportStatus": _exportStatus, "statusMessage": _statusMessage, "configurationsDownloadUrl": (NullOrUndefined Nothing), "isTruncated": (NullOrUndefined Nothing), "requestedEndTime": (NullOrUndefined Nothing), "requestedStartTime": (NullOrUndefined Nothing) }
+newExportInfo _exportId _exportRequestTime _exportStatus _statusMessage = ExportInfo { "exportId": _exportId, "exportRequestTime": _exportRequestTime, "exportStatus": _exportStatus, "statusMessage": _statusMessage, "configurationsDownloadUrl": Nothing, "isTruncated": Nothing, "requestedEndTime": Nothing, "requestedStartTime": Nothing }
 
 -- | Constructs ExportInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExportInfo' :: ConfigurationsExportId -> ExportRequestTime -> ExportStatus -> ExportStatusMessage -> ( { "exportId" :: (ConfigurationsExportId) , "exportStatus" :: (ExportStatus) , "statusMessage" :: (ExportStatusMessage) , "configurationsDownloadUrl" :: NullOrUndefined (ConfigurationsDownloadUrl) , "exportRequestTime" :: (ExportRequestTime) , "isTruncated" :: NullOrUndefined (Boolean) , "requestedStartTime" :: NullOrUndefined (TimeStamp) , "requestedEndTime" :: NullOrUndefined (TimeStamp) } -> {"exportId" :: (ConfigurationsExportId) , "exportStatus" :: (ExportStatus) , "statusMessage" :: (ExportStatusMessage) , "configurationsDownloadUrl" :: NullOrUndefined (ConfigurationsDownloadUrl) , "exportRequestTime" :: (ExportRequestTime) , "isTruncated" :: NullOrUndefined (Boolean) , "requestedStartTime" :: NullOrUndefined (TimeStamp) , "requestedEndTime" :: NullOrUndefined (TimeStamp) } ) -> ExportInfo
-newExportInfo' _exportId _exportRequestTime _exportStatus _statusMessage customize = (ExportInfo <<< customize) { "exportId": _exportId, "exportRequestTime": _exportRequestTime, "exportStatus": _exportStatus, "statusMessage": _statusMessage, "configurationsDownloadUrl": (NullOrUndefined Nothing), "isTruncated": (NullOrUndefined Nothing), "requestedEndTime": (NullOrUndefined Nothing), "requestedStartTime": (NullOrUndefined Nothing) }
+newExportInfo' :: ConfigurationsExportId -> ExportRequestTime -> ExportStatus -> ExportStatusMessage -> ( { "exportId" :: (ConfigurationsExportId) , "exportStatus" :: (ExportStatus) , "statusMessage" :: (ExportStatusMessage) , "configurationsDownloadUrl" :: Maybe (ConfigurationsDownloadUrl) , "exportRequestTime" :: (ExportRequestTime) , "isTruncated" :: Maybe (Boolean) , "requestedStartTime" :: Maybe (TimeStamp) , "requestedEndTime" :: Maybe (TimeStamp) } -> {"exportId" :: (ConfigurationsExportId) , "exportStatus" :: (ExportStatus) , "statusMessage" :: (ExportStatusMessage) , "configurationsDownloadUrl" :: Maybe (ConfigurationsDownloadUrl) , "exportRequestTime" :: (ExportRequestTime) , "isTruncated" :: Maybe (Boolean) , "requestedStartTime" :: Maybe (TimeStamp) , "requestedEndTime" :: Maybe (TimeStamp) } ) -> ExportInfo
+newExportInfo' _exportId _exportRequestTime _exportStatus _statusMessage customize = (ExportInfo <<< customize) { "exportId": _exportId, "exportRequestTime": _exportRequestTime, "exportStatus": _exportStatus, "statusMessage": _statusMessage, "configurationsDownloadUrl": Nothing, "isTruncated": Nothing, "requestedEndTime": Nothing, "requestedStartTime": Nothing }
 
 
 
@@ -989,12 +988,12 @@ instance encodeGetDiscoverySummaryRequest :: Encode GetDiscoverySummaryRequest w
 
 
 newtype GetDiscoverySummaryResponse = GetDiscoverySummaryResponse 
-  { "servers" :: NullOrUndefined (Number)
-  , "applications" :: NullOrUndefined (Number)
-  , "serversMappedToApplications" :: NullOrUndefined (Number)
-  , "serversMappedtoTags" :: NullOrUndefined (Number)
-  , "agentSummary" :: NullOrUndefined (CustomerAgentInfo)
-  , "connectorSummary" :: NullOrUndefined (CustomerConnectorInfo)
+  { "servers" :: Maybe (Number)
+  , "applications" :: Maybe (Number)
+  , "serversMappedToApplications" :: Maybe (Number)
+  , "serversMappedtoTags" :: Maybe (Number)
+  , "agentSummary" :: Maybe (CustomerAgentInfo)
+  , "connectorSummary" :: Maybe (CustomerConnectorInfo)
   }
 derive instance newtypeGetDiscoverySummaryResponse :: Newtype GetDiscoverySummaryResponse _
 derive instance repGenericGetDiscoverySummaryResponse :: Generic GetDiscoverySummaryResponse _
@@ -1004,18 +1003,18 @@ instance encodeGetDiscoverySummaryResponse :: Encode GetDiscoverySummaryResponse
 
 -- | Constructs GetDiscoverySummaryResponse from required parameters
 newGetDiscoverySummaryResponse :: GetDiscoverySummaryResponse
-newGetDiscoverySummaryResponse  = GetDiscoverySummaryResponse { "agentSummary": (NullOrUndefined Nothing), "applications": (NullOrUndefined Nothing), "connectorSummary": (NullOrUndefined Nothing), "servers": (NullOrUndefined Nothing), "serversMappedToApplications": (NullOrUndefined Nothing), "serversMappedtoTags": (NullOrUndefined Nothing) }
+newGetDiscoverySummaryResponse  = GetDiscoverySummaryResponse { "agentSummary": Nothing, "applications": Nothing, "connectorSummary": Nothing, "servers": Nothing, "serversMappedToApplications": Nothing, "serversMappedtoTags": Nothing }
 
 -- | Constructs GetDiscoverySummaryResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDiscoverySummaryResponse' :: ( { "servers" :: NullOrUndefined (Number) , "applications" :: NullOrUndefined (Number) , "serversMappedToApplications" :: NullOrUndefined (Number) , "serversMappedtoTags" :: NullOrUndefined (Number) , "agentSummary" :: NullOrUndefined (CustomerAgentInfo) , "connectorSummary" :: NullOrUndefined (CustomerConnectorInfo) } -> {"servers" :: NullOrUndefined (Number) , "applications" :: NullOrUndefined (Number) , "serversMappedToApplications" :: NullOrUndefined (Number) , "serversMappedtoTags" :: NullOrUndefined (Number) , "agentSummary" :: NullOrUndefined (CustomerAgentInfo) , "connectorSummary" :: NullOrUndefined (CustomerConnectorInfo) } ) -> GetDiscoverySummaryResponse
-newGetDiscoverySummaryResponse'  customize = (GetDiscoverySummaryResponse <<< customize) { "agentSummary": (NullOrUndefined Nothing), "applications": (NullOrUndefined Nothing), "connectorSummary": (NullOrUndefined Nothing), "servers": (NullOrUndefined Nothing), "serversMappedToApplications": (NullOrUndefined Nothing), "serversMappedtoTags": (NullOrUndefined Nothing) }
+newGetDiscoverySummaryResponse' :: ( { "servers" :: Maybe (Number) , "applications" :: Maybe (Number) , "serversMappedToApplications" :: Maybe (Number) , "serversMappedtoTags" :: Maybe (Number) , "agentSummary" :: Maybe (CustomerAgentInfo) , "connectorSummary" :: Maybe (CustomerConnectorInfo) } -> {"servers" :: Maybe (Number) , "applications" :: Maybe (Number) , "serversMappedToApplications" :: Maybe (Number) , "serversMappedtoTags" :: Maybe (Number) , "agentSummary" :: Maybe (CustomerAgentInfo) , "connectorSummary" :: Maybe (CustomerConnectorInfo) } ) -> GetDiscoverySummaryResponse
+newGetDiscoverySummaryResponse'  customize = (GetDiscoverySummaryResponse <<< customize) { "agentSummary": Nothing, "applications": Nothing, "connectorSummary": Nothing, "servers": Nothing, "serversMappedToApplications": Nothing, "serversMappedtoTags": Nothing }
 
 
 
 -- | <p>One or more parameters are not valid. Verify the parameters and try again.</p>
 newtype InvalidParameterException = InvalidParameterException 
-  { "message" :: NullOrUndefined (Message)
+  { "message" :: Maybe (Message)
   }
 derive instance newtypeInvalidParameterException :: Newtype InvalidParameterException _
 derive instance repGenericInvalidParameterException :: Generic InvalidParameterException _
@@ -1025,18 +1024,18 @@ instance encodeInvalidParameterException :: Encode InvalidParameterException whe
 
 -- | Constructs InvalidParameterException from required parameters
 newInvalidParameterException :: InvalidParameterException
-newInvalidParameterException  = InvalidParameterException { "message": (NullOrUndefined Nothing) }
+newInvalidParameterException  = InvalidParameterException { "message": Nothing }
 
 -- | Constructs InvalidParameterException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidParameterException' :: ( { "message" :: NullOrUndefined (Message) } -> {"message" :: NullOrUndefined (Message) } ) -> InvalidParameterException
-newInvalidParameterException'  customize = (InvalidParameterException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidParameterException' :: ( { "message" :: Maybe (Message) } -> {"message" :: Maybe (Message) } ) -> InvalidParameterException
+newInvalidParameterException'  customize = (InvalidParameterException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.</p>
 newtype InvalidParameterValueException = InvalidParameterValueException 
-  { "message" :: NullOrUndefined (Message)
+  { "message" :: Maybe (Message)
   }
 derive instance newtypeInvalidParameterValueException :: Newtype InvalidParameterValueException _
 derive instance repGenericInvalidParameterValueException :: Generic InvalidParameterValueException _
@@ -1046,21 +1045,21 @@ instance encodeInvalidParameterValueException :: Encode InvalidParameterValueExc
 
 -- | Constructs InvalidParameterValueException from required parameters
 newInvalidParameterValueException :: InvalidParameterValueException
-newInvalidParameterValueException  = InvalidParameterValueException { "message": (NullOrUndefined Nothing) }
+newInvalidParameterValueException  = InvalidParameterValueException { "message": Nothing }
 
 -- | Constructs InvalidParameterValueException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidParameterValueException' :: ( { "message" :: NullOrUndefined (Message) } -> {"message" :: NullOrUndefined (Message) } ) -> InvalidParameterValueException
-newInvalidParameterValueException'  customize = (InvalidParameterValueException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidParameterValueException' :: ( { "message" :: Maybe (Message) } -> {"message" :: Maybe (Message) } ) -> InvalidParameterValueException
+newInvalidParameterValueException'  customize = (InvalidParameterValueException <<< customize) { "message": Nothing }
 
 
 
 newtype ListConfigurationsRequest = ListConfigurationsRequest 
   { "configurationType" :: (ConfigurationItemType)
-  , "filters" :: NullOrUndefined (Filters)
-  , "maxResults" :: NullOrUndefined (Int)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "orderBy" :: NullOrUndefined (OrderByList)
+  , "filters" :: Maybe (Filters)
+  , "maxResults" :: Maybe (Int)
+  , "nextToken" :: Maybe (NextToken)
+  , "orderBy" :: Maybe (OrderByList)
   }
 derive instance newtypeListConfigurationsRequest :: Newtype ListConfigurationsRequest _
 derive instance repGenericListConfigurationsRequest :: Generic ListConfigurationsRequest _
@@ -1070,18 +1069,18 @@ instance encodeListConfigurationsRequest :: Encode ListConfigurationsRequest whe
 
 -- | Constructs ListConfigurationsRequest from required parameters
 newListConfigurationsRequest :: ConfigurationItemType -> ListConfigurationsRequest
-newListConfigurationsRequest _configurationType = ListConfigurationsRequest { "configurationType": _configurationType, "filters": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "orderBy": (NullOrUndefined Nothing) }
+newListConfigurationsRequest _configurationType = ListConfigurationsRequest { "configurationType": _configurationType, "filters": Nothing, "maxResults": Nothing, "nextToken": Nothing, "orderBy": Nothing }
 
 -- | Constructs ListConfigurationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListConfigurationsRequest' :: ConfigurationItemType -> ( { "configurationType" :: (ConfigurationItemType) , "filters" :: NullOrUndefined (Filters) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) , "orderBy" :: NullOrUndefined (OrderByList) } -> {"configurationType" :: (ConfigurationItemType) , "filters" :: NullOrUndefined (Filters) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (NextToken) , "orderBy" :: NullOrUndefined (OrderByList) } ) -> ListConfigurationsRequest
-newListConfigurationsRequest' _configurationType customize = (ListConfigurationsRequest <<< customize) { "configurationType": _configurationType, "filters": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "orderBy": (NullOrUndefined Nothing) }
+newListConfigurationsRequest' :: ConfigurationItemType -> ( { "configurationType" :: (ConfigurationItemType) , "filters" :: Maybe (Filters) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) , "orderBy" :: Maybe (OrderByList) } -> {"configurationType" :: (ConfigurationItemType) , "filters" :: Maybe (Filters) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (NextToken) , "orderBy" :: Maybe (OrderByList) } ) -> ListConfigurationsRequest
+newListConfigurationsRequest' _configurationType customize = (ListConfigurationsRequest <<< customize) { "configurationType": _configurationType, "filters": Nothing, "maxResults": Nothing, "nextToken": Nothing, "orderBy": Nothing }
 
 
 
 newtype ListConfigurationsResponse = ListConfigurationsResponse 
-  { "configurations" :: NullOrUndefined (Configurations)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "configurations" :: Maybe (Configurations)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListConfigurationsResponse :: Newtype ListConfigurationsResponse _
 derive instance repGenericListConfigurationsResponse :: Generic ListConfigurationsResponse _
@@ -1091,21 +1090,21 @@ instance encodeListConfigurationsResponse :: Encode ListConfigurationsResponse w
 
 -- | Constructs ListConfigurationsResponse from required parameters
 newListConfigurationsResponse :: ListConfigurationsResponse
-newListConfigurationsResponse  = ListConfigurationsResponse { "configurations": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListConfigurationsResponse  = ListConfigurationsResponse { "configurations": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListConfigurationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListConfigurationsResponse' :: ( { "configurations" :: NullOrUndefined (Configurations) , "nextToken" :: NullOrUndefined (NextToken) } -> {"configurations" :: NullOrUndefined (Configurations) , "nextToken" :: NullOrUndefined (NextToken) } ) -> ListConfigurationsResponse
-newListConfigurationsResponse'  customize = (ListConfigurationsResponse <<< customize) { "configurations": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListConfigurationsResponse' :: ( { "configurations" :: Maybe (Configurations) , "nextToken" :: Maybe (NextToken) } -> {"configurations" :: Maybe (Configurations) , "nextToken" :: Maybe (NextToken) } ) -> ListConfigurationsResponse
+newListConfigurationsResponse'  customize = (ListConfigurationsResponse <<< customize) { "configurations": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListServerNeighborsRequest = ListServerNeighborsRequest 
   { "configurationId" :: (ConfigurationId)
-  , "portInformationNeeded" :: NullOrUndefined (Boolean)
-  , "neighborConfigurationIds" :: NullOrUndefined (ConfigurationIdList)
-  , "maxResults" :: NullOrUndefined (Int)
-  , "nextToken" :: NullOrUndefined (String)
+  , "portInformationNeeded" :: Maybe (Boolean)
+  , "neighborConfigurationIds" :: Maybe (ConfigurationIdList)
+  , "maxResults" :: Maybe (Int)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeListServerNeighborsRequest :: Newtype ListServerNeighborsRequest _
 derive instance repGenericListServerNeighborsRequest :: Generic ListServerNeighborsRequest _
@@ -1115,19 +1114,19 @@ instance encodeListServerNeighborsRequest :: Encode ListServerNeighborsRequest w
 
 -- | Constructs ListServerNeighborsRequest from required parameters
 newListServerNeighborsRequest :: ConfigurationId -> ListServerNeighborsRequest
-newListServerNeighborsRequest _configurationId = ListServerNeighborsRequest { "configurationId": _configurationId, "maxResults": (NullOrUndefined Nothing), "neighborConfigurationIds": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "portInformationNeeded": (NullOrUndefined Nothing) }
+newListServerNeighborsRequest _configurationId = ListServerNeighborsRequest { "configurationId": _configurationId, "maxResults": Nothing, "neighborConfigurationIds": Nothing, "nextToken": Nothing, "portInformationNeeded": Nothing }
 
 -- | Constructs ListServerNeighborsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListServerNeighborsRequest' :: ConfigurationId -> ( { "configurationId" :: (ConfigurationId) , "portInformationNeeded" :: NullOrUndefined (Boolean) , "neighborConfigurationIds" :: NullOrUndefined (ConfigurationIdList) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (String) } -> {"configurationId" :: (ConfigurationId) , "portInformationNeeded" :: NullOrUndefined (Boolean) , "neighborConfigurationIds" :: NullOrUndefined (ConfigurationIdList) , "maxResults" :: NullOrUndefined (Int) , "nextToken" :: NullOrUndefined (String) } ) -> ListServerNeighborsRequest
-newListServerNeighborsRequest' _configurationId customize = (ListServerNeighborsRequest <<< customize) { "configurationId": _configurationId, "maxResults": (NullOrUndefined Nothing), "neighborConfigurationIds": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "portInformationNeeded": (NullOrUndefined Nothing) }
+newListServerNeighborsRequest' :: ConfigurationId -> ( { "configurationId" :: (ConfigurationId) , "portInformationNeeded" :: Maybe (Boolean) , "neighborConfigurationIds" :: Maybe (ConfigurationIdList) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (String) } -> {"configurationId" :: (ConfigurationId) , "portInformationNeeded" :: Maybe (Boolean) , "neighborConfigurationIds" :: Maybe (ConfigurationIdList) , "maxResults" :: Maybe (Int) , "nextToken" :: Maybe (String) } ) -> ListServerNeighborsRequest
+newListServerNeighborsRequest' _configurationId customize = (ListServerNeighborsRequest <<< customize) { "configurationId": _configurationId, "maxResults": Nothing, "neighborConfigurationIds": Nothing, "nextToken": Nothing, "portInformationNeeded": Nothing }
 
 
 
 newtype ListServerNeighborsResponse = ListServerNeighborsResponse 
   { "neighbors" :: (NeighborDetailsList)
-  , "nextToken" :: NullOrUndefined (String)
-  , "knownDependencyCount" :: NullOrUndefined (Number)
+  , "nextToken" :: Maybe (String)
+  , "knownDependencyCount" :: Maybe (Number)
   }
 derive instance newtypeListServerNeighborsResponse :: Newtype ListServerNeighborsResponse _
 derive instance repGenericListServerNeighborsResponse :: Generic ListServerNeighborsResponse _
@@ -1137,12 +1136,12 @@ instance encodeListServerNeighborsResponse :: Encode ListServerNeighborsResponse
 
 -- | Constructs ListServerNeighborsResponse from required parameters
 newListServerNeighborsResponse :: NeighborDetailsList -> ListServerNeighborsResponse
-newListServerNeighborsResponse _neighbors = ListServerNeighborsResponse { "neighbors": _neighbors, "knownDependencyCount": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListServerNeighborsResponse _neighbors = ListServerNeighborsResponse { "neighbors": _neighbors, "knownDependencyCount": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListServerNeighborsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListServerNeighborsResponse' :: NeighborDetailsList -> ( { "neighbors" :: (NeighborDetailsList) , "nextToken" :: NullOrUndefined (String) , "knownDependencyCount" :: NullOrUndefined (Number) } -> {"neighbors" :: (NeighborDetailsList) , "nextToken" :: NullOrUndefined (String) , "knownDependencyCount" :: NullOrUndefined (Number) } ) -> ListServerNeighborsResponse
-newListServerNeighborsResponse' _neighbors customize = (ListServerNeighborsResponse <<< customize) { "neighbors": _neighbors, "knownDependencyCount": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListServerNeighborsResponse' :: NeighborDetailsList -> ( { "neighbors" :: (NeighborDetailsList) , "nextToken" :: Maybe (String) , "knownDependencyCount" :: Maybe (Number) } -> {"neighbors" :: (NeighborDetailsList) , "nextToken" :: Maybe (String) , "knownDependencyCount" :: Maybe (Number) } ) -> ListServerNeighborsResponse
+newListServerNeighborsResponse' _neighbors customize = (ListServerNeighborsResponse <<< customize) { "neighbors": _neighbors, "knownDependencyCount": Nothing, "nextToken": Nothing }
 
 
 
@@ -1159,8 +1158,8 @@ instance encodeMessage :: Encode Message where encode = genericEncode options
 newtype NeighborConnectionDetail = NeighborConnectionDetail 
   { "sourceServerId" :: (ConfigurationId)
   , "destinationServerId" :: (ConfigurationId)
-  , "destinationPort" :: NullOrUndefined (BoxedInteger)
-  , "transportProtocol" :: NullOrUndefined (String)
+  , "destinationPort" :: Maybe (BoxedInteger)
+  , "transportProtocol" :: Maybe (String)
   , "connectionsCount" :: (Number)
   }
 derive instance newtypeNeighborConnectionDetail :: Newtype NeighborConnectionDetail _
@@ -1171,12 +1170,12 @@ instance encodeNeighborConnectionDetail :: Encode NeighborConnectionDetail where
 
 -- | Constructs NeighborConnectionDetail from required parameters
 newNeighborConnectionDetail :: Number -> ConfigurationId -> ConfigurationId -> NeighborConnectionDetail
-newNeighborConnectionDetail _connectionsCount _destinationServerId _sourceServerId = NeighborConnectionDetail { "connectionsCount": _connectionsCount, "destinationServerId": _destinationServerId, "sourceServerId": _sourceServerId, "destinationPort": (NullOrUndefined Nothing), "transportProtocol": (NullOrUndefined Nothing) }
+newNeighborConnectionDetail _connectionsCount _destinationServerId _sourceServerId = NeighborConnectionDetail { "connectionsCount": _connectionsCount, "destinationServerId": _destinationServerId, "sourceServerId": _sourceServerId, "destinationPort": Nothing, "transportProtocol": Nothing }
 
 -- | Constructs NeighborConnectionDetail's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNeighborConnectionDetail' :: Number -> ConfigurationId -> ConfigurationId -> ( { "sourceServerId" :: (ConfigurationId) , "destinationServerId" :: (ConfigurationId) , "destinationPort" :: NullOrUndefined (BoxedInteger) , "transportProtocol" :: NullOrUndefined (String) , "connectionsCount" :: (Number) } -> {"sourceServerId" :: (ConfigurationId) , "destinationServerId" :: (ConfigurationId) , "destinationPort" :: NullOrUndefined (BoxedInteger) , "transportProtocol" :: NullOrUndefined (String) , "connectionsCount" :: (Number) } ) -> NeighborConnectionDetail
-newNeighborConnectionDetail' _connectionsCount _destinationServerId _sourceServerId customize = (NeighborConnectionDetail <<< customize) { "connectionsCount": _connectionsCount, "destinationServerId": _destinationServerId, "sourceServerId": _sourceServerId, "destinationPort": (NullOrUndefined Nothing), "transportProtocol": (NullOrUndefined Nothing) }
+newNeighborConnectionDetail' :: Number -> ConfigurationId -> ConfigurationId -> ( { "sourceServerId" :: (ConfigurationId) , "destinationServerId" :: (ConfigurationId) , "destinationPort" :: Maybe (BoxedInteger) , "transportProtocol" :: Maybe (String) , "connectionsCount" :: (Number) } -> {"sourceServerId" :: (ConfigurationId) , "destinationServerId" :: (ConfigurationId) , "destinationPort" :: Maybe (BoxedInteger) , "transportProtocol" :: Maybe (String) , "connectionsCount" :: (Number) } ) -> NeighborConnectionDetail
+newNeighborConnectionDetail' _connectionsCount _destinationServerId _sourceServerId customize = (NeighborConnectionDetail <<< customize) { "connectionsCount": _connectionsCount, "destinationServerId": _destinationServerId, "sourceServerId": _sourceServerId, "destinationPort": Nothing, "transportProtocol": Nothing }
 
 
 
@@ -1200,7 +1199,7 @@ instance encodeNextToken :: Encode NextToken where encode = genericEncode option
 
 -- | <p>This operation is not permitted.</p>
 newtype OperationNotPermittedException = OperationNotPermittedException 
-  { "message" :: NullOrUndefined (Message)
+  { "message" :: Maybe (Message)
   }
 derive instance newtypeOperationNotPermittedException :: Newtype OperationNotPermittedException _
 derive instance repGenericOperationNotPermittedException :: Generic OperationNotPermittedException _
@@ -1210,19 +1209,19 @@ instance encodeOperationNotPermittedException :: Encode OperationNotPermittedExc
 
 -- | Constructs OperationNotPermittedException from required parameters
 newOperationNotPermittedException :: OperationNotPermittedException
-newOperationNotPermittedException  = OperationNotPermittedException { "message": (NullOrUndefined Nothing) }
+newOperationNotPermittedException  = OperationNotPermittedException { "message": Nothing }
 
 -- | Constructs OperationNotPermittedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOperationNotPermittedException' :: ( { "message" :: NullOrUndefined (Message) } -> {"message" :: NullOrUndefined (Message) } ) -> OperationNotPermittedException
-newOperationNotPermittedException'  customize = (OperationNotPermittedException <<< customize) { "message": (NullOrUndefined Nothing) }
+newOperationNotPermittedException' :: ( { "message" :: Maybe (Message) } -> {"message" :: Maybe (Message) } ) -> OperationNotPermittedException
+newOperationNotPermittedException'  customize = (OperationNotPermittedException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>A field and direction for ordered output.</p>
 newtype OrderByElement = OrderByElement 
   { "fieldName" :: (String)
-  , "sortOrder" :: NullOrUndefined (OrderString')
+  , "sortOrder" :: Maybe (OrderString')
   }
 derive instance newtypeOrderByElement :: Newtype OrderByElement _
 derive instance repGenericOrderByElement :: Generic OrderByElement _
@@ -1232,12 +1231,12 @@ instance encodeOrderByElement :: Encode OrderByElement where encode = genericEnc
 
 -- | Constructs OrderByElement from required parameters
 newOrderByElement :: String -> OrderByElement
-newOrderByElement _fieldName = OrderByElement { "fieldName": _fieldName, "sortOrder": (NullOrUndefined Nothing) }
+newOrderByElement _fieldName = OrderByElement { "fieldName": _fieldName, "sortOrder": Nothing }
 
 -- | Constructs OrderByElement's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOrderByElement' :: String -> ( { "fieldName" :: (String) , "sortOrder" :: NullOrUndefined (OrderString') } -> {"fieldName" :: (String) , "sortOrder" :: NullOrUndefined (OrderString') } ) -> OrderByElement
-newOrderByElement' _fieldName customize = (OrderByElement <<< customize) { "fieldName": _fieldName, "sortOrder": (NullOrUndefined Nothing) }
+newOrderByElement' :: String -> ( { "fieldName" :: (String) , "sortOrder" :: Maybe (OrderString') } -> {"fieldName" :: (String) , "sortOrder" :: Maybe (OrderString') } ) -> OrderByElement
+newOrderByElement' _fieldName customize = (OrderByElement <<< customize) { "fieldName": _fieldName, "sortOrder": Nothing }
 
 
 
@@ -1252,7 +1251,7 @@ instance encodeOrderByList :: Encode OrderByList where encode = genericEncode op
 
 -- | <p>The specified configuration ID was not located. Verify the configuration ID and try again.</p>
 newtype ResourceNotFoundException = ResourceNotFoundException 
-  { "message" :: NullOrUndefined (Message)
+  { "message" :: Maybe (Message)
   }
 derive instance newtypeResourceNotFoundException :: Newtype ResourceNotFoundException _
 derive instance repGenericResourceNotFoundException :: Generic ResourceNotFoundException _
@@ -1262,18 +1261,18 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | Constructs ResourceNotFoundException from required parameters
 newResourceNotFoundException :: ResourceNotFoundException
-newResourceNotFoundException  = ResourceNotFoundException { "message": (NullOrUndefined Nothing) }
+newResourceNotFoundException  = ResourceNotFoundException { "message": Nothing }
 
 -- | Constructs ResourceNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotFoundException' :: ( { "message" :: NullOrUndefined (Message) } -> {"message" :: NullOrUndefined (Message) } ) -> ResourceNotFoundException
-newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newResourceNotFoundException' :: ( { "message" :: Maybe (Message) } -> {"message" :: Maybe (Message) } ) -> ResourceNotFoundException
+newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The server experienced an internal error. Try again.</p>
 newtype ServerInternalErrorException = ServerInternalErrorException 
-  { "message" :: NullOrUndefined (Message)
+  { "message" :: Maybe (Message)
   }
 derive instance newtypeServerInternalErrorException :: Newtype ServerInternalErrorException _
 derive instance repGenericServerInternalErrorException :: Generic ServerInternalErrorException _
@@ -1283,12 +1282,12 @@ instance encodeServerInternalErrorException :: Encode ServerInternalErrorExcepti
 
 -- | Constructs ServerInternalErrorException from required parameters
 newServerInternalErrorException :: ServerInternalErrorException
-newServerInternalErrorException  = ServerInternalErrorException { "message": (NullOrUndefined Nothing) }
+newServerInternalErrorException  = ServerInternalErrorException { "message": Nothing }
 
 -- | Constructs ServerInternalErrorException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServerInternalErrorException' :: ( { "message" :: NullOrUndefined (Message) } -> {"message" :: NullOrUndefined (Message) } ) -> ServerInternalErrorException
-newServerInternalErrorException'  customize = (ServerInternalErrorException <<< customize) { "message": (NullOrUndefined Nothing) }
+newServerInternalErrorException' :: ( { "message" :: Maybe (Message) } -> {"message" :: Maybe (Message) } ) -> ServerInternalErrorException
+newServerInternalErrorException'  customize = (ServerInternalErrorException <<< customize) { "message": Nothing }
 
 
 
@@ -1313,7 +1312,7 @@ newStartDataCollectionByAgentIdsRequest' _agentIds customize = (StartDataCollect
 
 
 newtype StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsResponse 
-  { "agentsConfigurationStatus" :: NullOrUndefined (AgentConfigurationStatusList)
+  { "agentsConfigurationStatus" :: Maybe (AgentConfigurationStatusList)
   }
 derive instance newtypeStartDataCollectionByAgentIdsResponse :: Newtype StartDataCollectionByAgentIdsResponse _
 derive instance repGenericStartDataCollectionByAgentIdsResponse :: Generic StartDataCollectionByAgentIdsResponse _
@@ -1323,20 +1322,20 @@ instance encodeStartDataCollectionByAgentIdsResponse :: Encode StartDataCollecti
 
 -- | Constructs StartDataCollectionByAgentIdsResponse from required parameters
 newStartDataCollectionByAgentIdsResponse :: StartDataCollectionByAgentIdsResponse
-newStartDataCollectionByAgentIdsResponse  = StartDataCollectionByAgentIdsResponse { "agentsConfigurationStatus": (NullOrUndefined Nothing) }
+newStartDataCollectionByAgentIdsResponse  = StartDataCollectionByAgentIdsResponse { "agentsConfigurationStatus": Nothing }
 
 -- | Constructs StartDataCollectionByAgentIdsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartDataCollectionByAgentIdsResponse' :: ( { "agentsConfigurationStatus" :: NullOrUndefined (AgentConfigurationStatusList) } -> {"agentsConfigurationStatus" :: NullOrUndefined (AgentConfigurationStatusList) } ) -> StartDataCollectionByAgentIdsResponse
-newStartDataCollectionByAgentIdsResponse'  customize = (StartDataCollectionByAgentIdsResponse <<< customize) { "agentsConfigurationStatus": (NullOrUndefined Nothing) }
+newStartDataCollectionByAgentIdsResponse' :: ( { "agentsConfigurationStatus" :: Maybe (AgentConfigurationStatusList) } -> {"agentsConfigurationStatus" :: Maybe (AgentConfigurationStatusList) } ) -> StartDataCollectionByAgentIdsResponse
+newStartDataCollectionByAgentIdsResponse'  customize = (StartDataCollectionByAgentIdsResponse <<< customize) { "agentsConfigurationStatus": Nothing }
 
 
 
 newtype StartExportTaskRequest = StartExportTaskRequest 
-  { "exportDataFormat" :: NullOrUndefined (ExportDataFormats)
-  , "filters" :: NullOrUndefined (ExportFilters)
-  , "startTime" :: NullOrUndefined (TimeStamp)
-  , "endTime" :: NullOrUndefined (TimeStamp)
+  { "exportDataFormat" :: Maybe (ExportDataFormats)
+  , "filters" :: Maybe (ExportFilters)
+  , "startTime" :: Maybe (TimeStamp)
+  , "endTime" :: Maybe (TimeStamp)
   }
 derive instance newtypeStartExportTaskRequest :: Newtype StartExportTaskRequest _
 derive instance repGenericStartExportTaskRequest :: Generic StartExportTaskRequest _
@@ -1346,17 +1345,17 @@ instance encodeStartExportTaskRequest :: Encode StartExportTaskRequest where enc
 
 -- | Constructs StartExportTaskRequest from required parameters
 newStartExportTaskRequest :: StartExportTaskRequest
-newStartExportTaskRequest  = StartExportTaskRequest { "endTime": (NullOrUndefined Nothing), "exportDataFormat": (NullOrUndefined Nothing), "filters": (NullOrUndefined Nothing), "startTime": (NullOrUndefined Nothing) }
+newStartExportTaskRequest  = StartExportTaskRequest { "endTime": Nothing, "exportDataFormat": Nothing, "filters": Nothing, "startTime": Nothing }
 
 -- | Constructs StartExportTaskRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartExportTaskRequest' :: ( { "exportDataFormat" :: NullOrUndefined (ExportDataFormats) , "filters" :: NullOrUndefined (ExportFilters) , "startTime" :: NullOrUndefined (TimeStamp) , "endTime" :: NullOrUndefined (TimeStamp) } -> {"exportDataFormat" :: NullOrUndefined (ExportDataFormats) , "filters" :: NullOrUndefined (ExportFilters) , "startTime" :: NullOrUndefined (TimeStamp) , "endTime" :: NullOrUndefined (TimeStamp) } ) -> StartExportTaskRequest
-newStartExportTaskRequest'  customize = (StartExportTaskRequest <<< customize) { "endTime": (NullOrUndefined Nothing), "exportDataFormat": (NullOrUndefined Nothing), "filters": (NullOrUndefined Nothing), "startTime": (NullOrUndefined Nothing) }
+newStartExportTaskRequest' :: ( { "exportDataFormat" :: Maybe (ExportDataFormats) , "filters" :: Maybe (ExportFilters) , "startTime" :: Maybe (TimeStamp) , "endTime" :: Maybe (TimeStamp) } -> {"exportDataFormat" :: Maybe (ExportDataFormats) , "filters" :: Maybe (ExportFilters) , "startTime" :: Maybe (TimeStamp) , "endTime" :: Maybe (TimeStamp) } ) -> StartExportTaskRequest
+newStartExportTaskRequest'  customize = (StartExportTaskRequest <<< customize) { "endTime": Nothing, "exportDataFormat": Nothing, "filters": Nothing, "startTime": Nothing }
 
 
 
 newtype StartExportTaskResponse = StartExportTaskResponse 
-  { "exportId" :: NullOrUndefined (ConfigurationsExportId)
+  { "exportId" :: Maybe (ConfigurationsExportId)
   }
 derive instance newtypeStartExportTaskResponse :: Newtype StartExportTaskResponse _
 derive instance repGenericStartExportTaskResponse :: Generic StartExportTaskResponse _
@@ -1366,12 +1365,12 @@ instance encodeStartExportTaskResponse :: Encode StartExportTaskResponse where e
 
 -- | Constructs StartExportTaskResponse from required parameters
 newStartExportTaskResponse :: StartExportTaskResponse
-newStartExportTaskResponse  = StartExportTaskResponse { "exportId": (NullOrUndefined Nothing) }
+newStartExportTaskResponse  = StartExportTaskResponse { "exportId": Nothing }
 
 -- | Constructs StartExportTaskResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartExportTaskResponse' :: ( { "exportId" :: NullOrUndefined (ConfigurationsExportId) } -> {"exportId" :: NullOrUndefined (ConfigurationsExportId) } ) -> StartExportTaskResponse
-newStartExportTaskResponse'  customize = (StartExportTaskResponse <<< customize) { "exportId": (NullOrUndefined Nothing) }
+newStartExportTaskResponse' :: ( { "exportId" :: Maybe (ConfigurationsExportId) } -> {"exportId" :: Maybe (ConfigurationsExportId) } ) -> StartExportTaskResponse
+newStartExportTaskResponse'  customize = (StartExportTaskResponse <<< customize) { "exportId": Nothing }
 
 
 
@@ -1396,7 +1395,7 @@ newStopDataCollectionByAgentIdsRequest' _agentIds customize = (StopDataCollectio
 
 
 newtype StopDataCollectionByAgentIdsResponse = StopDataCollectionByAgentIdsResponse 
-  { "agentsConfigurationStatus" :: NullOrUndefined (AgentConfigurationStatusList)
+  { "agentsConfigurationStatus" :: Maybe (AgentConfigurationStatusList)
   }
 derive instance newtypeStopDataCollectionByAgentIdsResponse :: Newtype StopDataCollectionByAgentIdsResponse _
 derive instance repGenericStopDataCollectionByAgentIdsResponse :: Generic StopDataCollectionByAgentIdsResponse _
@@ -1406,12 +1405,12 @@ instance encodeStopDataCollectionByAgentIdsResponse :: Encode StopDataCollection
 
 -- | Constructs StopDataCollectionByAgentIdsResponse from required parameters
 newStopDataCollectionByAgentIdsResponse :: StopDataCollectionByAgentIdsResponse
-newStopDataCollectionByAgentIdsResponse  = StopDataCollectionByAgentIdsResponse { "agentsConfigurationStatus": (NullOrUndefined Nothing) }
+newStopDataCollectionByAgentIdsResponse  = StopDataCollectionByAgentIdsResponse { "agentsConfigurationStatus": Nothing }
 
 -- | Constructs StopDataCollectionByAgentIdsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStopDataCollectionByAgentIdsResponse' :: ( { "agentsConfigurationStatus" :: NullOrUndefined (AgentConfigurationStatusList) } -> {"agentsConfigurationStatus" :: NullOrUndefined (AgentConfigurationStatusList) } ) -> StopDataCollectionByAgentIdsResponse
-newStopDataCollectionByAgentIdsResponse'  customize = (StopDataCollectionByAgentIdsResponse <<< customize) { "agentsConfigurationStatus": (NullOrUndefined Nothing) }
+newStopDataCollectionByAgentIdsResponse' :: ( { "agentsConfigurationStatus" :: Maybe (AgentConfigurationStatusList) } -> {"agentsConfigurationStatus" :: Maybe (AgentConfigurationStatusList) } ) -> StopDataCollectionByAgentIdsResponse
+newStopDataCollectionByAgentIdsResponse'  customize = (StopDataCollectionByAgentIdsResponse <<< customize) { "agentsConfigurationStatus": Nothing }
 
 
 
@@ -1506,8 +1505,8 @@ instance encodeTimeStamp :: Encode TimeStamp where encode = genericEncode option
 
 newtype UpdateApplicationRequest = UpdateApplicationRequest 
   { "configurationId" :: (ApplicationId)
-  , "name" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
+  , "name" :: Maybe (String)
+  , "description" :: Maybe (String)
   }
 derive instance newtypeUpdateApplicationRequest :: Newtype UpdateApplicationRequest _
 derive instance repGenericUpdateApplicationRequest :: Generic UpdateApplicationRequest _
@@ -1517,12 +1516,12 @@ instance encodeUpdateApplicationRequest :: Encode UpdateApplicationRequest where
 
 -- | Constructs UpdateApplicationRequest from required parameters
 newUpdateApplicationRequest :: ApplicationId -> UpdateApplicationRequest
-newUpdateApplicationRequest _configurationId = UpdateApplicationRequest { "configurationId": _configurationId, "description": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newUpdateApplicationRequest _configurationId = UpdateApplicationRequest { "configurationId": _configurationId, "description": Nothing, "name": Nothing }
 
 -- | Constructs UpdateApplicationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateApplicationRequest' :: ApplicationId -> ( { "configurationId" :: (ApplicationId) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) } -> {"configurationId" :: (ApplicationId) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) } ) -> UpdateApplicationRequest
-newUpdateApplicationRequest' _configurationId customize = (UpdateApplicationRequest <<< customize) { "configurationId": _configurationId, "description": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newUpdateApplicationRequest' :: ApplicationId -> ( { "configurationId" :: (ApplicationId) , "name" :: Maybe (String) , "description" :: Maybe (String) } -> {"configurationId" :: (ApplicationId) , "name" :: Maybe (String) , "description" :: Maybe (String) } ) -> UpdateApplicationRequest
+newUpdateApplicationRequest' _configurationId customize = (UpdateApplicationRequest <<< customize) { "configurationId": _configurationId, "description": Nothing, "name": Nothing }
 
 
 

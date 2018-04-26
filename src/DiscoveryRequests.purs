@@ -80,7 +80,7 @@ disassociateConfigurationItemsFromApplication (Discovery.Service serviceImpl) = 
 
 -- | <p>Deprecated. Use <code>StartExportTask</code> instead.</p> <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID that you can query using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of two configuration exports in six hours.</p>
 exportConfigurations :: forall eff. Discovery.Service ->  Aff (exception :: EXCEPTION | eff) DiscoveryTypes.ExportConfigurationsResponse
-exportConfigurations (Discovery.Service serviceImpl) = AWS.request serviceImpl method (Types.NoInput unit) where
+exportConfigurations (Discovery.Service serviceImpl) = AWS.request serviceImpl method unit where
     method = AWS.MethodName "exportConfigurations"
 
 
